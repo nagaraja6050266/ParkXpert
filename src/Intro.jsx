@@ -7,6 +7,7 @@ import backButton from "./assets/backArrow.png";
 import nextButton from "./assets/frontArrow.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import ThreeDot from "./ThreeDot.jsx";
 
 const iconsArray = [robot, ban, shield];
 const iconsBgArray = ["#36A41D", "#FFB300", "#EE3939"];
@@ -26,20 +27,23 @@ function Intro() {
     const [arrayIndex, setArrayIndex] = useState(0);
 
     const handleBackButton = () => {
+        document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
         setArrayIndex((s) => s - 1);
-        console.log("Array Index: ",arrayIndex);
+        console.log("Array Index: ", arrayIndex);
+        document.getElementById(`${arrayIndex-1}`).classList.add("active-dot");
     };
-    
+
     const handleNextButton = () => {
-        console.log("Array Index: ",arrayIndex);
+        document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
+        console.log("Array Index: ", arrayIndex);
         setArrayIndex((s) => s + 1);
+        document.getElementById(`${arrayIndex+1}`).classList.add("active-dot");
     };
 
     const redirectToLogin = () => {
-        console.log("Array Index: ",arrayIndex);
+        console.log("Array Index: ", arrayIndex);
         navigate("/signup");
-    }
-
+    };
 
     return (
         <div className="intro-card-outer">
@@ -50,6 +54,7 @@ function Intro() {
                     mainContent={mainContentArray[arrayIndex]}
                     desciption={desciptionArray[arrayIndex]}
                 />
+                <ThreeDot />
                 <div className="back-and-next">
                     {arrayIndex > 0 && (
                         <Button
@@ -65,11 +70,13 @@ function Intro() {
                     )}
                     <Button
                         className="next-button"
-                        onClick={(arrayIndex>=2)?redirectToLogin:handleNextButton}
+                        onClick={
+                            arrayIndex >= 2 ? redirectToLogin : handleNextButton
+                        }
                         variant="contained"
                         endIcon={<img src={nextButton} alt="nextbutton" />}
                     >
-                        {(arrayIndex<=1)?'Next':'Get Started'}
+                        {arrayIndex <= 1 ? "Next" : "Get Started"}
                     </Button>
                 </div>
             </div>

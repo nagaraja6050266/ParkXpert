@@ -1,5 +1,4 @@
 import appIcon from "./assets/appIcon.png";
-import ThreeDot from "./ThreeDot";
 
 function IntroCard({ icon, iconBg, mainContent, desciption }) {
     return (
@@ -18,7 +17,6 @@ function IntroCard({ icon, iconBg, mainContent, desciption }) {
                     <h1>{mainContent}</h1>
                     <p>{desciption}</p>
                 </div>
-                <ThreeDot />
             </div>
     );
 }
