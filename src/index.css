@@ -1,0 +1,200 @@
+* {
+    font-family: "Inter", poppins;
+}
+
+body {
+    background-image: url("./assets/background.png");
+}
+
+.intro-card-container {
+    background-color: white;
+    width: 40%;
+    height: 440px;
+    margin: 35px 0px;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-card-outer {
+    display: flex;
+    justify-content: center;
+}
+
+.intro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-card .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.intro-icon-container {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+}
+.intro-icon-container img {
+    height: 65px;
+    margin: 0px 7px;
+}
+
+.intro-card-container p {
+    font-size: 12px;
+    color: #5b738b;
+    text-align: center;
+}
+
+.app-name-container {
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.app-name-container h2 {
+    font-family: "Ubuntu";
+    color: #00205c;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+}
+.app-name-container img {
+    height: 27px;
+}
+.app-name-container h2 {
+    margin: 0px 5px;
+}
+
+.back-and-next button {
+    font-weight: 520;
+    width: max-content;
+    border-radius: 8px;
+    top: 75%;
+    position: absolute;
+}
+
+.back-and-next .back-button {
+    border: 1px solid #00205c;
+    color: #00205c;
+    right: 61%;
+}
+.back-and-next .next-button {
+    border: none;
+    background-color: #00205c;
+    color: white;
+    right: 32%;
+}
+
+.back-and-next .next-button:hover {
+    border: none;
+    background-color: #00205c;
+    color: white;
+}
+
+.back-and-next .back-button:hover {
+    border: 1px solid #00205c;
+    color: #00205c;
+}
+
+/*Sign Up page Styles*/
+body {
+    margin: 0;
+}
+.splitted-page {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.first-half {
+    width: 50%;
+    height: 100vh;
+}
+.second-half {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.first-half .appName {
+    color: white;
+    font-size: 50px;
+}
+.first-half .app-name-container {
+    gap: 5px;
+    margin: 20% 20% 20% 20%;
+}
+.first-half .app-name-container img {
+    height: 50px;
+}
+
+.header {
+    margin: 0;
+}
+.description {
+    margin-top: 0;
+    color: #5b738b;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.label-and-input {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.label-and-input label {
+    color: #223548;
+}
+.label-and-input input {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    background-color:#EAECEE;
+}
+
+.second-half p{
+    text-align: center;
+    font-size: 12px;
+    color:#00205C;
+}
+
+.second-half .form button{
+    background: #00205C;
+    color: white;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.second-half-inner {
+    width: 60%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-up .second-half-inner{
+    justify-content: left;
+    width: 100%;
+    align-items:last baseline;
+}
