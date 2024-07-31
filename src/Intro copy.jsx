@@ -1,16 +1,11 @@
 import { useState } from "react";
-import IntroCard from "./IntroCard";
+import IntroCard from "./components/IntroCard";
 import { useNavigate } from "react-router-dom";
-import {
-    MobileStepper,
-    Button,
-    Box,
-    Paper,
-} from "@mui/material";
+import { MobileStepper, Button, Box, Paper } from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import robot from "./assets/robot.png";
 import ban from "./assets/ban.png";
 import shield from "./assets/shield.png";
@@ -18,8 +13,7 @@ import shield from "./assets/shield.png";
 const iconsArray = [robot, ban, shield];
 const iconsBgArray = ["#36A41D", "#FFB300", "#EE3939"];
 const mainContentArray = [
-    "Simplify your Work",
-    "Track Traffic Violations",
+    "Simplify your Work",    "Track Traffic Violations",
     "Secure your Building",
 ];
 const descriptionArray = [
@@ -44,14 +38,16 @@ function Intro() {
                     square
                     elevation={0}
                     sx={{
-                        display: 'flex',
-                        alignItems: 'center',
+                        display: "flex",
+                        alignItems: "center",
                         height: 50,
                         pl: 2,
-                        bgcolor: 'background.default',
+                        bgcolor: "background.default",
                     }}
                 >
-                    <h2>Step {activeStep + 1} of {maxSteps}</h2>
+                    <h2>
+                        Step {activeStep + 1} of {maxSteps}
+                    </h2>
                 </Paper>
                 <Carousel
                     selectedItem={activeStep}
@@ -77,7 +73,9 @@ function Intro() {
                     nextButton={
                         <Button
                             size="small"
-                            onClick={() => handleStepChange((activeStep + 1) % maxSteps)}
+                            onClick={() =>
+                                handleStepChange((activeStep + 1) % maxSteps)
+                            }
                         >
                             Next
                             <KeyboardArrowRight />
@@ -86,7 +84,11 @@ function Intro() {
                     backButton={
                         <Button
                             size="small"
-                            onClick={() => handleStepChange((activeStep - 1 + maxSteps) % maxSteps)}
+                            onClick={() =>
+                                handleStepChange(
+                                    (activeStep - 1 + maxSteps) % maxSteps
+                                )
+                            }
                         >
                             <KeyboardArrowLeft />
                             Back

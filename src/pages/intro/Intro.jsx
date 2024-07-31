@@ -1,13 +1,13 @@
-import robot from "./assets/robot.png";
-import ban from "./assets/ban.png";
-import shield from "./assets/shield.png";
+import robot from "../../assets/robot.png";
+import ban from "../../assets/ban.png";
+import shield from "../../assets/shield.png";
 import { useState } from "react";
-import IntroCard from "./IntroCard";
-import backButton from "./assets/backArrow.png";
-import nextButton from "./assets/frontArrow.png";
+import IntroCard from "../../components/IntroCard";
+import backButton from "../../assets/backArrow.png";
+import nextButton from "../../assets/frontArrow.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import ThreeDot from "./ThreeDot.jsx";
+import ThreeDot from "../../components/ThreeDot.jsx";
 
 const iconsArray = [robot, ban, shield];
 const iconsBgArray = ["#36A41D", "#FFB300", "#EE3939"];
@@ -30,19 +30,23 @@ function Intro() {
         document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
         setArrayIndex((s) => s - 1);
         console.log("Array Index: ", arrayIndex);
-        document.getElementById(`${arrayIndex-1}`).classList.add("active-dot");
+        document
+            .getElementById(`${arrayIndex - 1}`)
+            .classList.add("active-dot");
     };
 
     const handleNextButton = () => {
         document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
         console.log("Array Index: ", arrayIndex);
         setArrayIndex((s) => s + 1);
-        document.getElementById(`${arrayIndex+1}`).classList.add("active-dot");
+        document
+            .getElementById(`${arrayIndex + 1}`)
+            .classList.add("active-dot");
     };
 
     const redirectToLogin = () => {
         console.log("Array Index: ", arrayIndex);
-        navigate("/signup");
+        navigate("/signin");
     };
 
     return (
@@ -58,7 +62,7 @@ function Intro() {
                 <div className="back-and-next">
                     {arrayIndex > 0 && (
                         <Button
-                            className="back-button"
+                            className="styled-button back-button"
                             onClick={handleBackButton}
                             variant="outlined"
                             startIcon={
@@ -69,7 +73,7 @@ function Intro() {
                         </Button>
                     )}
                     <Button
-                        className="next-button"
+                        className="styled-button next-button"
                         onClick={
                             arrayIndex >= 2 ? redirectToLogin : handleNextButton
                         }

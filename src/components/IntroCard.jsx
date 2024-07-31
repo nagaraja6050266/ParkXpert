@@ -1,4 +1,4 @@
-import appIcon from "./assets/appIcon.png";
+import appIcon from "../assets/appIcon.png";
 
 function IntroCard({ icon, iconBg, mainContent, desciption }) {
     return (
