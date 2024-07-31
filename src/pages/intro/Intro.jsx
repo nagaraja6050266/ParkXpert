@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import ThreeDot from "../../components/ThreeDot.jsx";
 
+
+//Display Contents to pass to the Intro component
 const iconsArray = [robot, ban, shield];
 const iconsBgArray = ["#36A41D", "#FFB300", "#EE3939"];
 const mainContentArray = [
@@ -22,11 +24,17 @@ const desciptionArray = [
     "A database of pre registered people can be added and can weed out people who enter the premises in an unrecognized vehicle.",
 ];
 
+
 function Intro() {
     const navigate = useNavigate();
     const [arrayIndex, setArrayIndex] = useState(0);
 
+
+    //Handling Back Button click
     const handleBackButton = () => {
+
+        //Changing the current rendering element content as per ArrayIndex state
+        //Mentioning the active carousel item among Three Dots of carousel
         document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
         setArrayIndex((s) => s - 1);
         console.log("Array Index: ", arrayIndex);
@@ -35,6 +43,7 @@ function Intro() {
             .classList.add("active-dot");
     };
 
+    //Handling Next Button click
     const handleNextButton = () => {
         document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
         console.log("Array Index: ", arrayIndex);
@@ -44,8 +53,8 @@ function Intro() {
             .classList.add("active-dot");
     };
 
+    //Handling Login button press
     const redirectToLogin = () => {
-        console.log("Array Index: ", arrayIndex);
         navigate("/signin");
     };
 

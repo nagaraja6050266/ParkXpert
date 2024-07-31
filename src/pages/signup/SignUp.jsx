@@ -22,20 +22,34 @@ function SignUp() {
     const [mobileErrorMsg, setMobileErrorMsg] = useState(" ");
     const [chkBoxErrorMsg, setChkBoxErrorMsg] = useState(" ");
 
-    let email, mobile;
+    let fullname,email, mobile;
     function isFormFilled() {
+        try{
+            fullname=document.getElementById("name").value.trim();
+            console.log("Name found: ",fullname);
+            setFullnameErrorMsg(" ");
+        }
+        catch{
+            console.log("Name not found");
+            setFullnameErrorMsg("Name is Mandatory");
+            return false;
+        }
         try {
-            email = document.getElementById("email").value;
+            email = document.getElementById("email").value.trim();
+            console.log("Email found ", email);
             setEmailErrorMsg(" ");
         } catch {
+            console.log("Email not found");
             setEmailErrorMsg("Email ID is Mandatory");
             return false;
         }
         try {
-            mobile = document.getElementById("mobile").value;
+            mobile = document.getElementById("mobile").value.trim();
+            console.log("Mobile not found");
             setEmailErrorMsg(" ");
         } catch {
             setMobileErrorMsg("Mobile Number is Mandatory");
+            console.log("Mobile not found");
             return false;
         }
         setEmailErrorMsg(" ");
@@ -53,7 +67,7 @@ function SignUp() {
     };
 
     const handleSignUp = () => {
-        console.log(email,mobile);
+        console.log(email, mobile);
         if (isFormFilled()) {
             let i = 0;
             while (i < Users.length && Users[i].email != email) {
@@ -95,6 +109,7 @@ function SignUp() {
                             inputType="text"
                             inputId="name"
                             placeHolder="Enter your Name"
+                            value='name'
                             errMsg={fullnameErrorMsg}
                         />
                         <div
