@@ -1,26 +1,30 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import appIcon from "../../assets/appIcon.png";
 import { useNavigate } from "react-router-dom";
 import LabelAndInput from "../../components/LabelAndInput";
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Users = [
     {
         email: "nagaraja@gmail.com",
         password: "12345678",
     },
+    {
+        email: 'alagu@gmail.com',
+        password: '12345678'
+    }
 ];
 
 function SignIn() {
     const navigate = useNavigate();
     const [emailErrorMsg, setEmailErrorMsg] = useState(" ");
     const [passwordErrorMsg, setPasswordErrorMsg] = useState(" ");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleResetPassword = () => {
         //Reset
-    };
-
-    const handleSignUp = () => {
-        navigate("/signup");
     };
 
     const handleSubmission = (e) => {
@@ -44,6 +48,10 @@ function SignIn() {
         }
     };
 
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="splitted-page">
             <div className="first-half">
@@ -64,13 +72,28 @@ function SignIn() {
                             placeHolder="Enter your Mail ID"
                             errMsg={emailErrorMsg}
                         />
-                        <LabelAndInput
-                            labelName="Password"
-                            inputType="password"
-                            inputId="password"
-                            placeHolder="Enter your Password"
-                            errMsg={passwordErrorMsg}
-                        />
+                        <div className="label-and-input">
+                            <label htmlFor="password">Password</label>
+                            <div className="password-input-container">
+                                <input
+                                    style={{ backgroundColor: (passwordErrorMsg!=' ') ? '#FFEAF4' : '#eaecee' }}
+                                    type={showPassword ? "text" : "password"}
+                                    id="password"
+                                    placeholder="Enter your password"
+                                />
+                                <IconButton
+                                    className="password-eye"
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </div>
+                            <label style={{ color: "red" }} htmlFor="password">
+                                {passwordErrorMsg}
+                            </label>
+                        </div>
                         <div className="forgot-option">
                             <p>
                                 Forgot password ?{" "}
@@ -85,20 +108,25 @@ function SignIn() {
                                 </span>
                             </p>
                         </div>
-                        <button onClick={handleSubmission}>Sign In</button>
+                        <button type="submit" onClick={handleSubmission}>Sign In</button>
                     </div>
                     <p style={{ marginTop: 30 }}>
                         Don't have an account ?{" "}
-                        <span
-                            onClick={handleSignUp}
-                            style={{ fontWeight: "bold", cursor: "pointer" }}
+                        <a
+                            href="/signup"
+                            style={{
+                                textDecoration: "none",
+                                color: "#00205c",
+                                fontWeight: "bold",
+                            }}
                         >
                             Sign up for free
-                        </span>
+                        </a>
                     </p>
                 </div>
             </div>
         </div>
     );
 }
+
 export default SignIn;

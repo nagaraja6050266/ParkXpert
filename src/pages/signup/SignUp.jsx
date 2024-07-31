@@ -1,17 +1,74 @@
 import { useState } from "react";
 import appIcon from "../../assets/appIcon.png";
 import LabelAndInput from "../../components/LabelAndInput";
+import { useNavigate } from "react-router-dom";
+
+const Users = [
+    {
+        email: "nagaraja@gmail.com",
+        password: "12345678",
+    },
+    {
+        email: "alagu@gmail.com",
+        password: "12345678",
+    },
+];
 
 function SignUp() {
+    const navigate = useNavigate();
     const [emailErrorMsg, setEmailErrorMsg] = useState(" ");
-    const [passwordErrorMsg, setPasswordErrorMsg] = useState(" ");
+    const [isChecked, setIsChecked] = useState(false);
+    const [fullnameErrorMsg, setFullnameErrorMsg] = useState(" ");
+    const [mobileErrorMsg, setMobileErrorMsg] = useState(" ");
+    const [chkBoxErrorMsg, setChkBoxErrorMsg] = useState(" ");
 
-    const handleSignIn = () => {
-        //signIn
+    let email, mobile;
+    function isFormFilled() {
+        try {
+            email = document.getElementById("email").value;
+            setEmailErrorMsg(" ");
+        } catch {
+            setEmailErrorMsg("Email ID is Mandatory");
+            return false;
+        }
+        try {
+            mobile = document.getElementById("mobile").value;
+            setEmailErrorMsg(" ");
+        } catch {
+            setMobileErrorMsg("Mobile Number is Mandatory");
+            return false;
+        }
+        setEmailErrorMsg(" ");
+        setMobileErrorMsg(" ");
+        if (isChecked) {
+            return true;
+        } else {
+            setChkBoxErrorMsg("Agree the Terms");
+        }
+
+        return false;
+    }
+    const handleCheck = () => {
+        setIsChecked(!isChecked);
+    };
+
+    const handleSignUp = () => {
+        console.log(email,mobile);
+        if (isFormFilled()) {
+            let i = 0;
+            while (i < Users.length && Users[i].email != email) {
+                i++;
+            }
+            if (i == Users.length) {
+                setEmailErrorMsg(" ");
+            } else {
+                setEmailErrorMsg("E-Mail already in use");
+            }
+        }
     };
 
     const handleCancel = () => {
-        //cancellation
+        navigate("/signin");
     };
 
     const handleLogin = () => {
@@ -38,6 +95,7 @@ function SignUp() {
                             inputType="text"
                             inputId="name"
                             placeHolder="Enter your Name"
+                            errMsg={fullnameErrorMsg}
                         />
                         <div
                             className="label-and-input-outer"
@@ -53,12 +111,14 @@ function SignUp() {
                                 inputType="email"
                                 inputId="email"
                                 placeHolder="Enter your Mail ID"
+                                errMsg={emailErrorMsg}
                             />
                             <LabelAndInput
                                 labelName="Mobile Number"
                                 inputType="text"
                                 inputId="number"
                                 placeHolder="Enter your Mobile No."
+                                errMsg={mobileErrorMsg}
                             />
                         </div>
                     </div>
@@ -67,6 +127,8 @@ function SignUp() {
                             type="checkbox"
                             name="agree"
                             id="agree"
+                            checked={isChecked}
+                            onChange={handleCheck}
                             style={{ width: "15px" }}
                         />
                         <p className="agree" style={{ color: "#5B738B" }}>
@@ -84,23 +146,45 @@ function SignUp() {
                             </span>
                         </p>
                     </div>
+                    <div className="label-and-input">
+                        <label htmlFor="">{chkBoxErrorMsg}</label>
+                    </div>
                     <div className="cancel-or-signin">
                         <button className="back-button" onClick={handleCancel}>
                             Cancel
                         </button>
-                        <button className="next-button" onClick={handleSignIn}>
+                        <button className="next-button" onClick={handleSignUp}>
                             Sign Up
                         </button>
                     </div>
-                    <p style={{ marginTop: 30, color: "#5B738B" }}>
-                        Already have an account ?{" "}
-                        <span
-                            onClick={handleLogin}
-                            style={{ fontWeight: "bold", color: "#00205c" }}
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <p
+                            style={{
+                                marginTop: 30,
+                                color: "#5B738B",
+                                textAlign: "center",
+                            }}
                         >
-                            Login
-                        </span>
-                    </p>
+                            Already have an account ?{" "}
+                            <a
+                                href="/signin"
+                                onClick={handleLogin}
+                                style={{
+                                    textDecoration: "none",
+                                    fontWeight: "bold",
+                                    color: "#00205c",
+                                }}
+                            >
+                                Login
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

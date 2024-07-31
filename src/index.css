@@ -94,7 +94,7 @@ body {
     margin: 0px 5px;
 }
 
-.styled-button {
+.back-and-next button {
     font-weight: 520;
     width: max-content;
     border-radius: 8px;
@@ -102,20 +102,20 @@ body {
     position: absolute;
 }
 
-.back-button {
+.back-and-next .back-button,.cancel-or-signin .back-button {
     border: 1px solid #00205c;
     background-color: white;
     color: #00205c;
     right: 61%;
 }
-.next-button {
+.back-and-next .next-button,.cancel-or-signin .next-button {
     border: none;
     background-color: #00205c;
     color: white;
     right: 32%;
 }
 
-.back-and-next .next-button:hover {
+.back-and-next .next-button:hover,.cancel-or-signin .next-button {
     border: none;
     background-color: #00205c;
     color: white;
@@ -126,7 +126,7 @@ body {
     color: #00205c;
 }
 
-/*Sign Up page Styles*/
+/*Sign In page Styles*/
 body {
     margin: 0;
 }
@@ -178,6 +178,7 @@ body {
 
 .label-and-input label {
     color: #223548;
+    font-weight: 600;
 }
 .label-and-input input {
     width: 300px;
@@ -185,8 +186,9 @@ body {
     border-radius: 5px;
     border: none;
     padding-left: 10px;
-    background-color: #eaecee;
 }
+
+
 
 .sign-up .second-half-inner {
     align-items: baseline;
@@ -228,7 +230,7 @@ body {
     width: 200px;
     font-size: 12px;
     font-weight: 600;
-    height: 5vh;
+    height: 40px;
     border-radius: 8px;
     box-shadow: 0px 2px 4px 0px #0000001a;
     border: 1px solid #d5dadd;
@@ -238,4 +240,30 @@ body {
     display: flex;
     gap: 20px;
     width: 103%;
+    margin-top: 20px;
+}
+
+.forgot-option{
+    margin: 20px 0px;
+}
+
+.sign-up .forgot-option{
+    margin: 10px 0px;
+}
+
+/* Add these styles to your existing CSS file */
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container button{
+    position: absolute;
+    background-color: transparent !important;
+    color: #5B738B !important;
+    max-width: 50px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
