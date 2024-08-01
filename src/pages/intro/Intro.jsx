@@ -8,7 +8,9 @@ import nextButton from "../../assets/frontArrow.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import ThreeDot from "../../components/ThreeDot.jsx";
-
+import CenteredBox from "../../components/styled-components/CenteredBox";
+import StyledCard from "../../components/styled-components/StyledCard";
+import AppNameComponent from "../../components/styled-components/AppNameComponent";
 
 //Display Contents to pass to the Intro component
 const iconsArray = [robot, ban, shield];
@@ -24,77 +26,11 @@ const desciptionArray = [
     "A database of pre registered people can be added and can weed out people who enter the premises in an unrecognized vehicle.",
 ];
 
-
 function Intro() {
-    const navigate = useNavigate();
-    const [arrayIndex, setArrayIndex] = useState(0);
-
-
-    //Handling Back Button click
-    const handleBackButton = () => {
-
-        //Changing the current rendering element content as per ArrayIndex state
-        //Mentioning the active carousel item among Three Dots of carousel
-        document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
-        setArrayIndex((s) => s - 1);
-        console.log("Array Index: ", arrayIndex);
-        document
-            .getElementById(`${arrayIndex - 1}`)
-            .classList.add("active-dot");
-    };
-
-    //Handling Next Button click
-    const handleNextButton = () => {
-        document.getElementById(`${arrayIndex}`).classList.remove("active-dot");
-        console.log("Array Index: ", arrayIndex);
-        setArrayIndex((s) => s + 1);
-        document
-            .getElementById(`${arrayIndex + 1}`)
-            .classList.add("active-dot");
-    };
-
-    //Handling Login button press
-    const redirectToLogin = () => {
-        navigate("/signin");
-    };
-
-    return (
-        <div className="intro-card-outer">
-            <div className="intro-card-container">
-                <IntroCard
-                    icon={iconsArray[arrayIndex]}
-                    iconBg={iconsBgArray[arrayIndex]}
-                    mainContent={mainContentArray[arrayIndex]}
-                    desciption={desciptionArray[arrayIndex]}
-                />
-                <ThreeDot />
-                <div className="back-and-next">
-                    {arrayIndex > 0 && (
-                        <Button
-                            className="styled-button back-button"
-                            onClick={handleBackButton}
-                            variant="outlined"
-                            startIcon={
-                                <img src={backButton} alt="backbutton" />
-                            }
-                        >
-                            Back
-                        </Button>
-                    )}
-                    <Button
-                        className="styled-button next-button"
-                        onClick={
-                            arrayIndex >= 2 ? redirectToLogin : handleNextButton
-                        }
-                        variant="contained"
-                        endIcon={<img src={nextButton} alt="nextbutton" />}
-                    >
-                        {arrayIndex <= 1 ? "Next" : "Get Started"}
-                    </Button>
-                </div>
-            </div>
-        </div>
-    );
+    <CenteredBox>
+        <StyledCard>
+            <AppNameComponent />
+        </StyledCard>
+    </CenteredBox>;
 }
-
 export default Intro;
