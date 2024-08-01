@@ -1,20 +1,24 @@
-import robot from "../../assets/robot.png";
-import ban from "../../assets/ban.png";
-import shield from "../../assets/shield.png";
 import { useState } from "react";
-import IntroCard from "../../components/IntroCard";
-import backButton from "../../assets/backArrow.png";
-import nextButton from "../../assets/frontArrow.png";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import ThreeDot from "../../components/ThreeDot.jsx";
+import ban from "../../assets/ban.png";
+import robot from "../../assets/robot.png";
+import shield from "../../assets/shield.png";
+import AppNameComponent from "../../components/styled-components/AppNameComponent";
 import CenteredBox from "../../components/styled-components/CenteredBox";
 import StyledCard from "../../components/styled-components/StyledCard";
-import AppNameComponent from "../../components/styled-components/AppNameComponent";
+import StyledMobileStepper from "../../components/styled-components/StyledMobileStepper";
+import nextButton from "../../assets/frontArrow.png";
+import backButton from "../../assets/backArrow.png";
+import { useNavigate } from "react-router-dom";
+
+import { CardContent } from "@mui/material";
+import IconComponent from "../../components/styled-components/IconComponent";
+import {
+    StyledContainedButton,
+    StyledOutlinedButton,
+} from "../../components/styled-components/StyledButton";
 
 //Display Contents to pass to the Intro component
 const iconsArray = [robot, ban, shield];
-const iconsBgArray = ["#36A41D", "#FFB300", "#EE3939"];
 const mainContentArray = [
     "Simply your Work",
     "Track Traffic Violations",
@@ -27,10 +31,79 @@ const desciptionArray = [
 ];
 
 function Intro() {
-    <CenteredBox>
-        <StyledCard>
-            <AppNameComponent />
-        </StyledCard>
-    </CenteredBox>;
+    const [arrayIndex, setArrayIndex] = useState(0);
+    const navigate = useNavigate();
+
+    const handleNextClick = (e) => {
+        if (arrayIndex == 2) {
+            navigate("/signin");
+        }
+        setArrayIndex((a) => a + 1);
+    };
+    const handleBackClick = (e) => {
+        setArrayIndex((a) => a - 1);
+    };
+
+    return (
+        <CenteredBox>
+            <StyledCard>
+                <AppNameComponent />
+                <IconComponent
+                    component="img"
+                    height="80"
+                    image={iconsArray[arrayIndex]}
+                    alt="icon"
+                />
+                <h1 style={{ fontWeight: "bold", color: "black" }}>
+                    {mainContentArray[arrayIndex]}
+                </h1>
+                <CardContent
+                    style={{
+                        color: "#5B738B",
+                        fontSize: "12px",
+                        textAlign: "center",
+                        height: "40px"
+                    }}
+                >
+                    {desciptionArray[arrayIndex]}
+                </CardContent>
+                <StyledMobileStepper
+                    variant="dots"
+                    steps={3}
+                    position="static"
+                    activeStep={arrayIndex}
+                    sx={{ maxWidth: 400, flexGrow: 1 }}
+                />
+                {arrayIndex ? (
+                    <StyledOutlinedButton
+                        startIcon={<img src={backButton} alt="backbutton" />}
+                        style={{
+                            position: "absolute",
+                            bottom: "50px",
+                            left: "30px",
+                        }}
+                        onClick={handleBackClick}
+                        variant="outlined"
+                    >
+                        Back
+                    </StyledOutlinedButton>
+                ) : (
+                    " "
+                )}
+                <StyledContainedButton
+                    endIcon={<img src={nextButton} alt="nextbutton" />}
+                    style={{
+                        position: "absolute",
+                        bottom: "50px",
+                        right: "30px",
+                    }}
+                    onClick={handleNextClick}
+                    variant="contained"
+                >
+                    {arrayIndex == 2 ? "Get Started" : "Next"}
+                </StyledContainedButton>
+            </StyledCard>
+        </CenteredBox>
+    );
 }
 export default Intro;
