@@ -1,8 +1,13 @@
 import { Box, Container, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { StyledContainedButton,FlexBox,StyledSpan } from "../../components/styled-components/styledComponents";
+import { useState } from "react";
+import {
+    StyledContainedButton,
+    FlexBox,
+    StyledSpan,
+} from "../../components/styled-components/styledComponents";
 import CustomLabelInput from "../../components/styled-components/CustomLabelInput";
+import { useNavigate } from "react-router-dom";
+import e from "cors";
 
 const Users = [
     {
@@ -16,7 +21,8 @@ const Users = [
 ];
 
 function SignInForm() {
-    const navigate = useNavigate();
+    const navigate=useNavigate();
+    let email,password,i;
     const [emailErrorMsg, setEmailErrorMsg] = useState(" ");
     const [passwordErrorMsg, setPasswordErrorMsg] = useState(" ");
 
@@ -24,29 +30,48 @@ function SignInForm() {
         //Reset
     };
 
-    const handleSubmission = (e) => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        for (let i = 0; i < Users.length; i++) {
+    const isFormFilled = () => {
+        console.log(email,password);
+        if (!email) {
+            setEmailErrorMsg("Email is Mandatory");
+            return false;
+        } else {
+            setEmailErrorMsg(" ");
+        }
+        if (!password) {
+            setPasswordErrorMsg("Password is Mandatory");
+            return false;
+        } else {
+            setPasswordErrorMsg(" ");
+        }
+        return true;
+    };
+
+    const handleSubmission = (event) => {
+        event.preventDefault();
+        email = document.getElementById("email").value.trim();
+        password = document.getElementById("password").value.trim();
+        if (!isFormFilled()) {
+            return;
+        }
+        for (i = 0; i < Users.length; i++) {
             if (Users[i].email === email) {
                 setEmailErrorMsg(" ");
-                if (Users[i].password === password) {
-                    //Navigate
-                    console.log("Successfully verified");
+                if(Users[i].password===password){
                     setPasswordErrorMsg(" ");
-                } else {
-                    setPasswordErrorMsg("Incorrect Password");
-                    console.log("Ps worng");
+                    return;
                 }
-            } else {
-                setEmailErrorMsg("Incorrect Email");
-                console.log("email", Users[i].email, "given: ", email);
+                else{
+                    setPasswordErrorMsg("Invalid Password");
+                    return;
+                }
             }
         }
+        setEmailErrorMsg("Invalid Email");
     };
 
     return (
-        <Box>
+        <form>
             <Container>
                 <Typography
                     variant="h4"
@@ -113,7 +138,7 @@ function SignInForm() {
                     <StyledSpan href="/signup">Sign up for free</StyledSpan>
                 </Typography>
             </FlexBox>
-        </Box>
+        </form>
     );
 }
 
