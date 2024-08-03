@@ -2,20 +2,19 @@ import { useState } from "react";
 import ban from "../../assets/ban.png";
 import robot from "../../assets/robot.png";
 import shield from "../../assets/shield.png";
+import {
+    CenteredBox,
+    StyledCard,
+    StyledMobileStepper,
+    IconComponent,
+    StyledContainedButton,
+    StyledOutlinedButton,
+} from "../../components/styled-components/styledComponents";
 import AppNameComponent from "../../components/styled-components/AppNameComponent";
-import CenteredBox from "../../components/styled-components/CenteredBox";
-import StyledCard from "../../components/styled-components/StyledCard";
-import StyledMobileStepper from "../../components/styled-components/StyledMobileStepper";
 import nextButton from "../../assets/frontArrow.png";
 import backButton from "../../assets/backArrow.png";
 import { useNavigate } from "react-router-dom";
-
 import { CardContent } from "@mui/material";
-import IconComponent from "../../components/styled-components/IconComponent";
-import {
-    StyledContainedButton,
-    StyledOutlinedButton,
-} from "../../components/styled-components/StyledButton";
 
 //Display Contents to pass to the Intro component
 const iconsArray = [robot, ban, shield];
@@ -62,7 +61,7 @@ function Intro() {
                         color: "#5B738B",
                         fontSize: "12px",
                         textAlign: "center",
-                        height: "40px"
+                        height: "40px",
                     }}
                 >
                     {desciptionArray[arrayIndex]}
@@ -72,7 +71,7 @@ function Intro() {
                     steps={3}
                     position="static"
                     activeStep={arrayIndex}
-                    sx={{ maxWidth: 400, flexGrow: 1}}
+                    sx={{ maxWidth: 400, flexGrow: 1 }}
                 />
                 {arrayIndex ? (
                     <StyledOutlinedButton

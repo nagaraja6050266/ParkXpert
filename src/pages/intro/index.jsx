@@ -12,7 +12,6 @@ function IntroPage() {
         return () => clearTimeout(timer);
     }, []);
 
-    //return <Intro />;
     return <>{renderContent ? <Intro /> : <IntroLoad />}</>;
 }
 

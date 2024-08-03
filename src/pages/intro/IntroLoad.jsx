@@ -1,8 +1,7 @@
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
+import {StyledCard,CenteredBox} from "../../components/styled-components/styledComponents";
 import AppNameComponent from "../../components/styled-components/AppNameComponent";
-import StyledCard from "../../components/styled-components/StyledCard";
-import CenteredBox from "../../components/styled-components/CenteredBox";
 
 function IntroLoad() {
     return (

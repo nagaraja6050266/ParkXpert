@@ -1,25 +1,8 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
-import AppNameComponent from "../../components/styled-components/AppNameComponent";
-import styled from "@emotion/styled";
+import { Grid } from "@mui/material";
+import AppNameComponent from "../../components/styled-components/AppNameComponent.jsx";
 import SignUpForm from "./SignUpForm";
-
-const LeftSide = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: white;
-`;
-
-const RightSide = styled(Box)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    height: 100vh;
-`;
+import { LeftSide,RightSide } from "../../components/styled-components/styledComponents";
 
 function SignUp() {
     return (

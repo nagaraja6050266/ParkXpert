@@ -1,10 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CustomLabelInput } from "../../components/styled-components/CustomInputLabel";
-import { StyledContainedButton } from "../../components/styled-components/StyledButton";
-import FlexBox from "../../components/styled-components/FlexBox";
-import StyledSpan from "../../components/styled-components/StyledSpan";
+import { StyledContainedButton,FlexBox,StyledSpan } from "../../components/styled-components/styledComponents";
+import CustomLabelInput from "../../components/styled-components/CustomLabelInput";
 
 const Users = [
     {

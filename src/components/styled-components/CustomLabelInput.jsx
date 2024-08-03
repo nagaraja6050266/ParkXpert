@@ -1,27 +1,5 @@
-import styled from "styled-components";
+import { CustomInput, CustomLabel, CustomLabelInputContainer } from './styledComponents';
 import PasswordInput from "./PasswordInput";
-
-const CustomLabel = styled.label`
-    color: #223548;
-    font-weight: 600;
-    font-size: 12px;
-`;
-
-const CustomInput = styled.input`
-    width: inherit;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    padding-left: 10px;
-`;
-
-const CustomLabelInputContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    gap: 5px;
-    font-size: 12px;
-`;
 
 function CustomLabelInput({
     labelName,
@@ -53,4 +31,5 @@ function CustomLabelInput({
     );
 }
 
-export { CustomLabelInput, CustomInput };
+export default CustomLabelInput;
+

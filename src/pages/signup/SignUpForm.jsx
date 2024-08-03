@@ -1,13 +1,13 @@
-import { Container, Grid, Typography, Checkbox, Box } from "@mui/material";
+import { Box, Checkbox, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CustomLabelInput } from "../../components/styled-components/CustomInputLabel";
-import FlexBox from "../../components/styled-components/FlexBox";
+import CustomLabelInput from "../../components/styled-components/CustomLabelInput";
 import {
+    FlexBox,
     StyledContainedButton,
     StyledOutlinedButton,
-} from "../../components/styled-components/StyledButton";
-import StyledSpan from "../../components/styled-components/StyledSpan";
+    StyledSpan,
+} from "../../components/styled-components/styledComponents";
 
 const Users = [
     {
@@ -30,49 +30,34 @@ function SignUpForm() {
 
     let fullname, email, mobile;
     function isFormFilled() {
-        try {
-            fullname = document.getElementById("name").value.trim();
-            console.log("Name found: ", fullname);
-            setFullnameErrorMsg(" ");
-        } catch {
-            console.log("Name not found");
-            setFullnameErrorMsg("Name is Mandatory");
+        fullname = document.getElementById("name").value.trim();
+        email = document.getElementById("email").value.trim();
+        mobile = document.getElementById("mobile").value.trim();
+        if (!fullname) {
+            setFullnameErrorMsg("Full Name is Mandatory");
             return false;
-        }
-        try {
-            email = document.getElementById("email").value.trim();
-            console.log("Email found ", email);
-            setEmailErrorMsg(" ");
-        } catch {
-            console.log("Email not found");
-            setEmailErrorMsg("Email ID is Mandatory");
-            return false;
-        }
-        try {
-            mobile = document.getElementById("mobile").value.trim();
-            console.log("Mobile not found");
-            setEmailErrorMsg(" ");
-        } catch {
-            setMobileErrorMsg("Mobile Number is Mandatory");
-            console.log("Mobile not found");
-            return false;
-        }
-        setEmailErrorMsg(" ");
-        setMobileErrorMsg(" ");
-        if (isChecked) {
-            return true;
         } else {
-            setChkBoxErrorMsg("Agree the Terms");
+            setFullnameErrorMsg(" ");
         }
-
-        return false;
+        if (!email) {
+            setEmailErrorMsg("Email ID is mandatory");
+            return false;
+        } else {
+            setEmailErrorMsg(" ");
+        }
+        if (!mobile) {
+            setMobileErrorMsg("Mobile number is mandatory");
+            return false;
+        } else {
+            setMobileErrorMsg(" ");
+        }
+        return true;
     }
     const handleCheck = () => {
         setIsChecked(!isChecked);
     };
 
     const handleSignUp = () => {
-        console.log(email, mobile);
         if (isFormFilled()) {
             let i = 0;
             while (i < Users.length && Users[i].email != email) {
@@ -88,10 +73,6 @@ function SignUpForm() {
 
     const handleCancel = () => {
         navigate("/signin");
-    };
-
-    const handleLogin = () => {
-        //comments
     };
 
     return (
@@ -142,7 +123,12 @@ function SignUpForm() {
                         />
                     </Grid>
                 </Grid>
-                <FlexBox alignItems="center" justifyContent="left" width="100%" mt={1}>
+                <FlexBox
+                    alignItems="center"
+                    justifyContent="left"
+                    width="100%"
+                    mt={1}
+                >
                     <Checkbox
                         checked={isChecked}
                         onChange={handleCheck}
@@ -161,7 +147,11 @@ function SignUpForm() {
                         fontSize={12}
                     >
                         I agree to the{" "}
-                        <StyledSpan href="/signup" textDecoration="underline" color="#5B738B"> 
+                        <StyledSpan
+                            href="/signup"
+                            textDecoration="underline"
+                            color="#5B738B"
+                        >
                             Terms and Conditions
                         </StyledSpan>
                     </Typography>

@@ -1,23 +1,7 @@
-import styled from "styled-components";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
-import { CustomInput } from "./CustomInputLabel";
 import { useState } from "react";
-
-const PasswordContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    button {
-        position: absolute;
-        background-color: transparent;
-        color: #5b738b;
-        max-width: 50px;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-`;
+import { PasswordContainer,CustomInput } from "./styledComponents";
 
 function PasswordInput({id,placeholder,errMsg}) {
     const [showPassword, setShowPassword] = useState(false);
