@@ -1,7 +1,14 @@
 import { Button } from "@mui/material";
 import styled from "@emotion/styled";
 
-const StyledContainedButton = styled(Button)`
+const StyledButton = styled(Button)`
+    border-radius: 10px;
+    height: 40px;
+
+    font-size: 12px;
+`;
+
+const StyledContainedButton = styled(StyledButton)`
     &.MuiButton-contained {
         background-color: rgb(0, 32, 92);
         color: white;
@@ -12,7 +19,9 @@ const StyledContainedButton = styled(Button)`
     }
 `;
 
-const StyledOutlinedButton = styled(Button)`
+const StyledOutlinedButton = styled(StyledButton)`
+    box-shadow: 0px 2px 4px 0px #0000001a;
+
     &.MuiButton-outlined {
         border-color: rgb(0, 32, 92);
         color: rgb(0, 32, 92);

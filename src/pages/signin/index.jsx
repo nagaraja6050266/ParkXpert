@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
+import SignInForm from "./SignInForm";
 import AppNameComponent from "../../components/styled-components/AppNameComponent";
 import styled from "@emotion/styled";
-import SignUpForm from "./SignUpForm";
 
 const LeftSide = styled(Box)`
     display: flex;
@@ -21,7 +21,7 @@ const RightSide = styled(Box)`
     height: 100vh;
 `;
 
-function SignUp() {
+function SignIn(){
     return (
         <Grid container>
             <Grid item xs={12} md={6}>
@@ -31,11 +31,11 @@ function SignUp() {
             </Grid>
             <Grid item xs={12} md={6}>
                 <RightSide>
-                    <SignUpForm/>
+                    <SignInForm />
                 </RightSide>
             </Grid>
         </Grid>
     );
 };
 
-export default SignUp;
+export default SignIn;

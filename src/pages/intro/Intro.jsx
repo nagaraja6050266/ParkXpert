@@ -72,7 +72,7 @@ function Intro() {
                     steps={3}
                     position="static"
                     activeStep={arrayIndex}
-                    sx={{ maxWidth: 400, flexGrow: 1 }}
+                    sx={{ maxWidth: 400, flexGrow: 1}}
                 />
                 {arrayIndex ? (
                     <StyledOutlinedButton
