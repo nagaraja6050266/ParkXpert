@@ -56,6 +56,7 @@ function SignInForm() {
                 setEmailErrorMsg(" ");
                 if (Users[i].password === password) {
                     setPasswordErrorMsg(" ");
+                    navigate('/dashboard');
                     return;
                 } else {
                     setPasswordErrorMsg("Invalid Password");

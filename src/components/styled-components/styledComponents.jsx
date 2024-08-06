@@ -6,10 +6,10 @@ import {
     Card,
     Button,
     MobileStepper,
+    createTheme,
 } from "@mui/material";
 import styled from "@emotion/styled";
-import '@fontsource/assistant'
-
+import "@fontsource/assistant";
 
 //AppName and Logo Component
 const AppNameContainer = Styled.div`
@@ -192,6 +192,26 @@ const RightSide = styled(Box)`
     height: 100vh;
 `;
 
+const Theme = createTheme({
+    palette: {
+        primary: {
+            main: "#00205C",
+        },
+    },
+    typography: {
+        fontFamily: "Inter, sans-serif",
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: "none",
+                },
+            },
+        },
+    },
+});
+
 export {
     AppName,
     AppNameContainer,
@@ -210,4 +230,5 @@ export {
     StyledSpan,
     LeftSide,
     RightSide,
+    Theme,
 };

@@ -4,9 +4,34 @@ import { StyledContainedButton } from "../../components/styled-components/styled
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const formConfig = {
+    "set-password": {
+        title: "Set Password",
+        subtitle: "Set your Password",
+        showPassword: true,
+        showConfirmPassword: true,
+        showEmail: false,
+    },
+    "reset-password": {
+        title: "Reset Password",
+        subtitle: "Set your New Password",
+        showPassword: true,
+        showConfirmPassword: true,
+        showEmail: false,
+    },
+    "forgot-password": {
+        title: "Forgot Password",
+        subtitle: "Enter Mobile No. to get OTP",
+        showPassword: false,
+        showConfirmPassword: false,
+        showEmail: true,
+    },
+};
+
 function PasswordForm({ page }) {
     const navigate = useNavigate();
     const [confirmPasswordErrMsg, setConfirmPasswordErrMsg] = useState(" ");
+    const config = formConfig[page];
 
     const handleSubmission = (event) => {
         event.preventDefault();
@@ -17,13 +42,13 @@ function PasswordForm({ page }) {
             navigate("/signin");
             return;
         }
-        setConfirmPasswordErrMsg("Password doesnt Match");
+        setConfirmPasswordErrMsg("Password doesn't Match");
     };
 
     const navigateToOtp = (event) =>{
         event.preventDefault();
         navigate('/otp');
-    } 
+    }
 
     return (
         <form>
@@ -34,11 +59,7 @@ function PasswordForm({ page }) {
                     fontWeight="bold"
                     align="center"
                 >
-                    {page === "set-password"
-                        ? "Set Password"
-                        : page === "reset-password"
-                        ? "Reset Password"
-                        : "Forgot Password"}
+                    {config.title}
                 </Typography>
                 <Typography
                     variant="body1"
@@ -46,28 +67,20 @@ function PasswordForm({ page }) {
                     mb={3}
                     align="center"
                 >
-                    {page === "set-password"
-                        ? "Set your Password"
-                        : page === "reset-password"
-                        ? "Set your New Password"
-                        : "Enter Mobile No. to get OTP"}
+                    {config.subtitle}
                 </Typography>
             </Container>
 
-            {page != "forgot-password" ? (
+            {config.showPassword && (
                 <CustomLabelInput
-                    labelName={
-                        page === "forgot-password" ? "New Password" : "Password"
-                    }
+                    labelName="Password"
                     inputType="password"
                     inputId="enteredPassword"
                     placeHolder="Enter your Password"
                     errMsg=" "
                 />
-            ) : (
-                ""
             )}
-            {page != "forgot-password" ? (
+            {config.showConfirmPassword && (
                 <CustomLabelInput
                     labelName="Confirm Password"
                     inputType="password"
@@ -75,10 +88,8 @@ function PasswordForm({ page }) {
                     placeHolder="Confirm your password"
                     errMsg={confirmPasswordErrMsg}
                 />
-            ) : (
-                ""
             )}
-            {page === "forgot-password" ? (
+            {config.showEmail && (
                 <CustomLabelInput
                     labelName="Email"
                     inputType="email"
@@ -86,14 +97,12 @@ function PasswordForm({ page }) {
                     placeHolder="Enter your Email"
                     errMsg=" "
                 />
-            ) : (
-                ""
             )}
             <StyledContainedButton
                 sx={{ marginTop: "40px" }}
                 variant="contained"
                 type="submit"
-                onClick={page!='forgot-password'?handleSubmission:navigateToOtp}
+                onClick={config.showEmail ? navigateToOtp : handleSubmission}
                 fullWidth
             >
                 Get Started

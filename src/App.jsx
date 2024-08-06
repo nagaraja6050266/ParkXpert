@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import IndexTemplate from "./components/indexTemplate";
-import "./index.css";
 import IntroPage from "./pages/intro/index.jsx";
+import Dashboard from "./pages/dashboard/index";
 
 function App() {
     return (
@@ -13,6 +13,7 @@ function App() {
             <Route path="/otp" element={<IndexTemplate page='otp' />} />
             <Route path="/reset-password" element={<IndexTemplate page='reset-password' />} />
             <Route path="/forgot-password" element={<IndexTemplate page='forgot-password' />} />
+            <Route path="/dashboard" element={<Dashboard/>} />
         </Routes>
     );
 }
