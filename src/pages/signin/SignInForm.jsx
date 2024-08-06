@@ -21,17 +21,14 @@ const Users = [
 ];
 
 function SignInForm() {
-    const navigate=useNavigate();
-    let email,password,i;
+    const navigate = useNavigate();
+    let email, password, i;
     const [emailErrorMsg, setEmailErrorMsg] = useState(" ");
     const [passwordErrorMsg, setPasswordErrorMsg] = useState(" ");
 
-    const handleResetPassword = () => {
-        //Reset
-    };
 
     const isFormFilled = () => {
-        console.log(email,password);
+        console.log(email, password);
         if (!email) {
             setEmailErrorMsg("Email is Mandatory");
             return false;
@@ -57,11 +54,10 @@ function SignInForm() {
         for (i = 0; i < Users.length; i++) {
             if (Users[i].email === email) {
                 setEmailErrorMsg(" ");
-                if(Users[i].password===password){
+                if (Users[i].password === password) {
                     setPasswordErrorMsg(" ");
                     return;
-                }
-                else{
+                } else {
                     setPasswordErrorMsg("Invalid Password");
                     return;
                 }
@@ -115,7 +111,7 @@ function SignInForm() {
                     align="center"
                 >
                     Forgot password ?{" "}
-                    <StyledSpan href="#" onClick={handleResetPassword}>
+                    <StyledSpan href="/forgot-password">
                         Reset Password
                     </StyledSpan>
                 </Typography>

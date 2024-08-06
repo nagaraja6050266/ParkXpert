@@ -23,7 +23,7 @@ const Users = [
 function SignUpForm() {
     const navigate = useNavigate();
     const [emailErrorMsg, setEmailErrorMsg] = useState(" ");
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(true);
     const [fullnameErrorMsg, setFullnameErrorMsg] = useState(" ");
     const [mobileErrorMsg, setMobileErrorMsg] = useState(" ");
 
@@ -72,6 +72,7 @@ function SignUpForm() {
                 setEmailErrorMsg("E-Mail already in use");
                 return;
             }
+            navigate("/set-password");
         }
     };
 

@@ -8,6 +8,8 @@ import {
     MobileStepper,
 } from "@mui/material";
 import styled from "@emotion/styled";
+import '@fontsource/assistant'
+
 
 //AppName and Logo Component
 const AppNameContainer = Styled.div`
@@ -46,14 +48,23 @@ const CustomLabel = Styled.label`
 //Custom Input and Label Container
 
 const CustomInput = Styled.input`
-    width: inherit;
-    height: 35px;
+    width: ${(props) => (props.type === "otp" ? "60px" : "inherit")};
+    height: ${(props) => (props.type === "otp" ? "60px" : "35px")} ;
     border-radius: 5px;
-    border: none;
-    padding-left: 10px;
+    border: solid 1px #D5DADD;
+    background-color: #EAECEE;
+    padding-left: ${(props) => (props.type === "otp" ? "0" : "10px")};
+    ${(props) => (props.type === "otp" ? "color: #475E75;" : "")}
+    ${(props) => (props.type === "otp" ? "font-size: 30px;" : "")}
+    ${(props) => (props.type === "otp" ? "font-family: Assistant;" : "")}
+    ${(props) => (props.type === "otp" ? "font-weight: bold;" : "")}
+    ${(props) => (props.type === "otp" ? "text-align: center;" : "")}
     &:focus{
-        border: solid 1.5px #00205c;
+        border: solid 1px ${(props) =>
+            props.type === "otp" ? "#2671FF" : "#00205c"};
         outline: none;
+        background-color: ${(props) =>
+            props.type === "otp" ? "#C9DCFF" : "#EAECEE"};
     }
 `;
 
@@ -102,7 +113,6 @@ const PasswordContainer = styled.div`
 const StyledButton = styled(Button)`
     border-radius: 10px;
     height: 40px;
-
     font-size: 12px;
 `;
 
