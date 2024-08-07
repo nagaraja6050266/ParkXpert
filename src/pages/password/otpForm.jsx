@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import {
-    StyledContainedButton,
+    StyledButton,
     StyledSpan,
     CustomLabel,
     FlexBox,
@@ -42,9 +42,9 @@ function OtpForm({ email }) {
                     <CustomLabel>Enter OTP</CustomLabel>
                     <OTPinputs length="4" />
                 </FlexBox>
-                <StyledContainedButton variant="contained" onClick={handleOTPVerification} fullWidth>
+                <StyledButton variant="contained" onClick={handleOTPVerification} fullWidth>
                     Verify
-                </StyledContainedButton>
+                </StyledButton>
             </FlexBox>
         </FlexBox>
     );

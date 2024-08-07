@@ -1,7 +1,7 @@
 import SignInForm from "../pages/signin/SignInForm";
 import SignUpForm from "../pages/signup/SignUpForm";
 import PasswordForm from "../pages/password/passwordForm";
-import { RightSide, LeftSide,StyledOutlinedButton } from "./styled-components/styledComponents";
+import { RightSide, LeftSide,StyledButton } from "./styled-components/styledComponents";
 import AppNameComponent from "./styled-components/AppNameComponent";
 import { Grid } from "@mui/material";
 import OtpForm from "../pages/password/otpForm";
@@ -31,7 +31,7 @@ function IndexTemplate({ page }) {
             <Grid item xs={12} md={6}>
                 <RightSide flexDirection='column'>
                     {page != "signin" && page != "signup" ? (
-                        <StyledOutlinedButton
+                        <StyledButton
                             startIcon={
                                 <img src={backbutton} alt="backbutton" />
                             }
@@ -44,7 +44,7 @@ function IndexTemplate({ page }) {
                             variant="outlined"
                         >
                             Back
-                        </StyledOutlinedButton>
+                        </StyledButton>
                     ) : (
                         ""
                     )}

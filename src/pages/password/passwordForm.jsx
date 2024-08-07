@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import CustomLabelInput from "../../components/styled-components/CustomLabelInput";
-import { StyledContainedButton } from "../../components/styled-components/styledComponents";
+import { StyledButton } from "../../components/styled-components/styledComponents";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -98,7 +98,7 @@ function PasswordForm({ page }) {
                     errMsg=" "
                 />
             )}
-            <StyledContainedButton
+            <StyledButton
                 sx={{ marginTop: "40px" }}
                 variant="contained"
                 type="submit"
@@ -106,7 +106,7 @@ function PasswordForm({ page }) {
                 fullWidth
             >
                 Get Started
-            </StyledContainedButton>
+            </StyledButton>
         </form>
     );
 }

@@ -116,31 +116,6 @@ const StyledButton = styled(Button)`
     font-size: 12px;
 `;
 
-const StyledContainedButton = styled(StyledButton)`
-    &.MuiButton-contained {
-        background-color: rgb(0, 32, 92);
-        color: white;
-
-        &:hover {
-            background-color: rgba(0, 32, 92, 0.8);
-        }
-    }
-`;
-
-const StyledOutlinedButton = styled(StyledButton)`
-    box-shadow: 0px 2px 4px 0px #0000001a;
-
-    &.MuiButton-outlined {
-        border-color: rgb(0, 32, 92);
-        color: rgb(0, 32, 92);
-
-        &:hover {
-            background-color: rgba(0, 32, 92, 0.1);
-            border-color: rgb(0, 32, 92);
-        }
-    }
-`;
-
 //Card
 const StyledCard = styled(Card)`
     background-color: white;
@@ -223,12 +198,11 @@ export {
     IconComponent,
     IntroHeadingCardContent,
     PasswordContainer,
-    StyledContainedButton,
-    StyledOutlinedButton,
     StyledCard,
     StyledMobileStepper,
     StyledSpan,
     LeftSide,
     RightSide,
     Theme,
+    StyledButton
 };

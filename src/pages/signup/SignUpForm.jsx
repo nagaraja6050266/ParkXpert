@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CustomLabelInput from "../../components/styled-components/CustomLabelInput";
 import {
     FlexBox,
-    StyledContainedButton,
-    StyledOutlinedButton,
+    StyledButton,
     StyledSpan,
 } from "../../components/styled-components/styledComponents";
 
@@ -166,21 +165,21 @@ function SignUpForm() {
 
                 <FlexBox flexDirection="column" width="100%" mt={5}>
                     <FlexBox gap="20px">
-                        <StyledOutlinedButton
+                        <StyledButton
                             variant="outlined"
                             fullWidth
                             onClick={handleCancel}
                         >
                             Cancel
-                        </StyledOutlinedButton>
-                        <StyledContainedButton
+                        </StyledButton>
+                        <StyledButton
                             variant="contained"
                             type="submit"
                             fullWidth
                             onClick={handleSignUp}
                         >
                             Sign Up
-                        </StyledContainedButton>
+                        </StyledButton>
                     </FlexBox>
                     <Typography
                         variant="body1"

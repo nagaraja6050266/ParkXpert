@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useState } from "react";
 import {
-    StyledContainedButton,
+    StyledButton,
     FlexBox,
     StyledSpan,
 } from "../../components/styled-components/styledComponents";
@@ -116,14 +116,14 @@ function SignInForm() {
                         Reset Password
                     </StyledSpan>
                 </Typography>
-                <StyledContainedButton
+                <StyledButton
                     variant="contained"
                     type="submit"
                     onClick={handleSubmission}
                     fullWidth
                 >
                     Sign In
-                </StyledContainedButton>
+                </StyledButton>
                 <Typography
                     variant="body1"
                     color="#5B738B"

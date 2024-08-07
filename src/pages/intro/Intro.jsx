@@ -7,8 +7,7 @@ import {
     StyledCard,
     StyledMobileStepper,
     IconComponent,
-    StyledContainedButton,
-    StyledOutlinedButton,
+    StyledButton,
 } from "../../components/styled-components/styledComponents";
 import AppNameComponent from "../../components/styled-components/AppNameComponent";
 import nextButton from "../../assets/frontArrow.png";
@@ -74,7 +73,7 @@ function Intro() {
                     sx={{ maxWidth: 400, flexGrow: 1 }}
                 />
                 {arrayIndex ? (
-                    <StyledOutlinedButton
+                    <StyledButton
                         startIcon={<img src={backButton} alt="backbutton" />}
                         style={{
                             position: "absolute",
@@ -85,11 +84,11 @@ function Intro() {
                         variant="outlined"
                     >
                         Back
-                    </StyledOutlinedButton>
+                    </StyledButton>
                 ) : (
                     " "
                 )}
-                <StyledContainedButton
+                <StyledButton
                     endIcon={<img src={nextButton} alt="nextbutton" />}
                     style={{
                         position: "absolute",
@@ -100,7 +99,7 @@ function Intro() {
                     variant="contained"
                 >
                     {arrayIndex == 2 ? "Get Started" : "Next"}
-                </StyledContainedButton>
+                </StyledButton>
             </StyledCard>
         </CenteredBox>
     );
