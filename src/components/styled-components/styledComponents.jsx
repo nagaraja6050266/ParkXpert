@@ -7,6 +7,7 @@ import {
     Button,
     MobileStepper,
     createTheme,
+    ListItemButton,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import "@fontsource/assistant";
@@ -119,16 +120,16 @@ const StyledButton = styled(Button)`
 //Card
 const StyledCard = styled(Card)`
     background-color: white;
-    width: 40%;
-    height: 440px;
+    width: ${(props) => props.width || "40%"};
+    height: ${(props) => props.height || "440px"};
     margin: 35px 0px;
     border-radius: 15px;
-    padding: 20px;
-    display: flex;
+    padding: ${(props) => props.padding || "20px"};
+    display: ${(props) => props.display || "flex"};
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: ${(props) => props.position || "relative"};
 `;
 
 //Stepper 3 dots for intro
@@ -167,6 +168,17 @@ const RightSide = styled(Box)`
     height: 100vh;
 `;
 
+const StyledListItemButton = styled(ListItemButton)`
+    margin: 5px 5%;
+    padding: 5px 15%;
+    border-radius: 10px;
+    font-weight: ${(props) => (props.selected ? "700" : "500")};
+    &:hover {
+        background-color: #00205c;
+        color: white;
+    }
+`;
+
 const Theme = createTheme({
     palette: {
         primary: {
@@ -175,12 +187,49 @@ const Theme = createTheme({
     },
     typography: {
         fontFamily: "Inter, sans-serif",
+        fontWeight: "500"
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
                     textTransform: "none",
+                },
+            },
+        },
+        MuiListItemButton: {
+            styleOverrides: {
+                root: {
+                    color: "white",
+                    "& .MuiTypography-root": {
+                        fontWeight: "400",
+                        fontSize: "14px",
+                    },
+                    fontWeight: "500",
+                    "&.Mui-selected": {
+                        backgroundColor: "#00205C",
+                        color: "white",
+                        "& .MuiTypography-root": {
+                            fontWeight: "600",
+                        },
+                        "&:hover": {
+                            backgroundColor: "#00205C",
+                        },
+                        "& .MuiListItemIcon-root": {
+                            color: "white",
+                        },
+                    },
+                },
+            },
+        },
+        MuiListItemIcon: {
+            styleOverrides: {
+                root: {
+                    color: "#8396A8",
+                    minWidth: "35px",
+                    "& .MuiSvgIcon-root": {
+                        fontSize: "20px",
+                    },
                 },
             },
         },
@@ -204,5 +253,6 @@ export {
     LeftSide,
     RightSide,
     Theme,
-    StyledButton
+    StyledButton,
+    StyledListItemButton,
 };
