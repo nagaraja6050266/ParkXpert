@@ -9,6 +9,8 @@ import Auto from "../../assets/auto.png";
 import Ban from "../../assets/banPlain.png";
 import Truck from "../../assets/truck.png";
 import Warn from "../../assets/warning.png";
+import UserProfile from "../../components/dashboard-components/UserProfile";
+import Header from "./Header";
 
 const vehicleCardContents = [
     {
@@ -55,10 +57,7 @@ const vehicleCardContents = [
 function Dashboard() {
     return (
         <Box>
-            <FlexBox>
-                <OfficeLocation />
-                <DateAndTime />
-            </FlexBox>
+            <Header></Header>
             <FlexBox justifyContent="space-evenly" width="100%" flexWrap="wrap">
                 {vehicleCardContents.map((m, i) => (
                     <VehicleCard

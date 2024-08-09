@@ -1,33 +1,43 @@
-import { Box, Card, Typography } from "@mui/material";
-import { FlexBox } from "../styled-components/styledComponents";
 import AccessTimeFilledRoundedIcon from "@mui/icons-material/AccessTimeFilledRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
-import { StyledCard } from "../styled-components/styledComponents";
-
-const icons = [
-    {
-        component: (
-            <CalendarMonthRoundedIcon
-                fontSize="small"
-                sx={{ color: "#354A5F" }}
-            />
-        ),
-        content: "Date",
-    },
-    {
-        component: (
-            <AccessTimeFilledRoundedIcon
-                fontSize="small"
-                sx={{ color: "#354A5F" }}
-            />
-        ),
-        content: "Time",
-    },
-];
+import { Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { FlexBox, StyledCard } from "../styled-components/styledComponents";
 
 function DateAndTime() {
+    const [date, setDate] = useState(new Date());
+
+    useEffect(() => {
+        var timer = setInterval(() => setDate(new Date()), 1000);
+        return function cleanup() {
+            clearInterval(timer);
+        };
+    });
+
+    const icons = [
+        {
+            component: (
+                <CalendarMonthRoundedIcon
+                    fontSize="10px"
+                    sx={{ color: "#354A5F" }}
+                />
+            ),
+            content: date.toLocaleDateString(),
+        },
+        {
+            component: (
+                <AccessTimeFilledRoundedIcon
+                    fontSize="10px"
+                    sx={{ color: "#354A5F" }}
+                />
+            ),
+            content: date.toLocaleTimeString(),
+        },
+    ];
+
     return (
-        <StyledCard padding='10px 10px'
+        <StyledCard
+            padding="10px 10px"
             height="50px"
             width="100px"
             sx={{
@@ -37,7 +47,7 @@ function DateAndTime() {
         >
             {icons.map((m, i) => (
                 <>
-                    <FlexBox key={i} alignItems='center'>
+                    <FlexBox key={i} alignItems="center" gap={0.5}>
                         {m.component}
                         <Typography fontSize={10} color="#475E75">
                             {m.content}
@@ -50,8 +60,3 @@ function DateAndTime() {
 }
 
 export default DateAndTime;
-
-<FlexBox>
-    <AccessTimeFilledRoundedIcon fontSize="small" />
-    <Typography>Time</Typography>
-</FlexBox>;
