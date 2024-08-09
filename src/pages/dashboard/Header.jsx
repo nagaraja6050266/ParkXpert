@@ -7,7 +7,7 @@ function Header() {
     return (
         <FlexBox height='fit-content' width='100%'>
             <OfficeLocation />
-            <FlexBox justifyContent='flex-end'>
+            <FlexBox alignItems='center' justifyContent='flex-end'>
                 <DateAndTime />
                 <UserProfile />
             </FlexBox>
@@ -15,4 +15,4 @@ function Header() {
     );
 }
 
-exp
+export default Header;

@@ -40,6 +40,7 @@ function DateAndTime() {
             padding="10px 10px"
             height="50px"
             width="100px"
+            margin="0"
             sx={{
                 borderRadius: "8px !important",
                 backgroundColor: "#EAECEE !important",

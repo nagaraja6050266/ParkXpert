@@ -2,7 +2,7 @@ import VehicleCard from "../../components/dashboard-components/VehicleCard";
 import DateAndTime from "../../components/dashboard-components/DateAndTime";
 import OfficeLocation from "../../components/dashboard-components/OfficeLocation";
 import { FlexBox } from "../../components/styled-components/styledComponents";
-import { Box } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import CarIcon from "../../assets/car.png";
 import Scooter from "../../assets/scooter.png";
 import Auto from "../../assets/auto.png";
@@ -57,7 +57,8 @@ const vehicleCardContents = [
 function Dashboard() {
     return (
         <Box>
-            <Header></Header>
+            <Header />
+            <Divider sx={{ marginBottom: "10px" }} />
             <FlexBox justifyContent="space-evenly" width="100%" flexWrap="wrap">
                 {vehicleCardContents.map((m, i) => (
                     <VehicleCard

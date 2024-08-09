@@ -122,7 +122,7 @@ const StyledCard = styled(Card)`
     background-color: white;
     width: ${(props) => props.width || "40%"};
     height: ${(props) => props.height || "440px"};
-    margin: 35px 0px;
+    margin: ${(props) => props.margin || "35px 0px"};
     border-radius: 15px;
     padding: ${(props) => props.padding || "20px"};
     display: ${(props) => props.display || "flex"};
