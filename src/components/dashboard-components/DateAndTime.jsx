@@ -37,7 +37,7 @@ function DateAndTime() {
         >
             {icons.map((m, i) => (
                 <>
-                    <FlexBox alignItems='center'>
+                    <FlexBox key={i} alignItems='center'>
                         {m.component}
                         <Typography fontSize={10} color="#475E75">
                             {m.content}
