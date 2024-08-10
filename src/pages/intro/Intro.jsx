@@ -43,7 +43,7 @@ function Intro() {
     };
 
     return (
-        <CenteredBox>
+        <CenteredBox height='100vh'>
             <StyledCard>
                 <AppNameComponent />
                 <IconComponent

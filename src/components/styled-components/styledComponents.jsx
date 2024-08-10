@@ -8,6 +8,7 @@ import {
     MobileStepper,
     createTheme,
     ListItemButton,
+    Select,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import "@fontsource/assistant";
@@ -37,7 +38,9 @@ const AppName = Styled.h2`
 //Styled Box to contain a centered align div
 const CenteredBox = styled(Box)`
     display: flex;
-    justify-content: center;
+    justify-content: ${(props) =>
+        props.justifyContent ? props.justifyContent : "center"};
+    align-items: center;
 `;
 
 const CustomLabel = Styled.label`
@@ -179,6 +182,13 @@ const StyledListItemButton = styled(ListItemButton)`
     }
 `;
 
+const StyledSelect = styled(Select)`
+    &.MuiSelect-select {
+        backgroundcolor: ${(props) =>
+            props.backgroundColor ? props.backgroundColor : "white"};
+    }
+`;
+
 const Theme = createTheme({
     palette: {
         primary: {
@@ -187,7 +197,7 @@ const Theme = createTheme({
     },
     typography: {
         fontFamily: "Inter, sans-serif",
-        fontWeight: "500"
+        fontWeight: "500",
     },
     components: {
         MuiButton: {
@@ -255,4 +265,5 @@ export {
     Theme,
     StyledButton,
     StyledListItemButton,
+    StyledSelect,
 };

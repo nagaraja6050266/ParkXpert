@@ -47,14 +47,12 @@ function DateAndTime() {
             }}
         >
             {icons.map((m, i) => (
-                <>
-                    <FlexBox key={i} alignItems="center" gap={0.5}>
-                        {m.component}
-                        <Typography fontSize={10} color="#475E75">
-                            {m.content}
-                        </Typography>
-                    </FlexBox>
-                </>
+                <FlexBox key={i} alignItems="center" gap={0.5}>
+                    {m.component}
+                    <Typography key={i} fontSize={10} color="#475E75">
+                        {m.content}
+                    </Typography>
+                </FlexBox>
             ))}
         </StyledCard>
     );

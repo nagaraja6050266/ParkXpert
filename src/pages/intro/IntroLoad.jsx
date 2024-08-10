@@ -5,7 +5,7 @@ import AppNameComponent from "../../components/styled-components/AppNameComponen
 
 function IntroLoad() {
     return (
-        <CenteredBox>
+        <CenteredBox height='100vh'>
             <StyledCard>
                 <AppNameComponent height="40px"></AppNameComponent>
                 <Box sx={{ width: "90%" }}>
