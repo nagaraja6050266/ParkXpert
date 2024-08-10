@@ -1,15 +1,14 @@
-import { Box, Divider, Typography } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import Auto from "../../assets/auto.png";
-import Ban from "../../assets/banPlain.png";
-import CarIcon from "../../assets/car.png";
-import Scooter from "../../assets/scooter.png";
-import Truck from "../../assets/truck.png";
-import Warn from "../../assets/warning.png";
-import VehicleCard from "../../components/dashboard-components/VehicleCard";
-import { FlexBox } from "../../components/styled-components/styledComponents";
-import Header from "./Header";
-import CheckBox from "../../components/dashboard-components/CheckBox";
+import { Box, Divider, Typography } from "@mui/material";
+import CheckBox from "../../../components/dashboard-components/CheckBox";
+import VehicleCard from "../../../components/dashboard-components/VehicleCard";
+import { FlexBox } from "../../../components/styled-components/styledComponents";
+import Auto from "../../../assets/auto.png";
+import Ban from "../../../assets/banPlain.png";
+import CarIcon from "../../../assets/car.png";
+import Scooter from "../../../assets/scooter.png";
+import Truck from "../../../assets/truck.png";
+import Warn from "../../../assets/warning.png";
 
 const vehicleCardContents = [
     {
@@ -55,10 +54,9 @@ const vehicleCardContents = [
 
 const optionsArray = ["All", "Car", "Bike", "Truck"];
 
-function Dashboard() {
+function MainContent() {
     return (
         <Box>
-            <Header />
             <Divider sx={{ marginBottom: "10px" }} />
             <FlexBox justifyContent="space-evenly" width="100%" flexWrap="wrap">
                 {vehicleCardContents.map((m, i) => (
@@ -93,10 +91,14 @@ function Dashboard() {
                 </Box>
             </FlexBox>
             <FlexBox>
-                <CheckBox width="100px" optionsArray={optionsArray}></CheckBox>
+                <CheckBox
+                    width="300px"
+                    backgroundColor="primary.main"
+                    optionsArray={optionsArray}
+                ></CheckBox>
             </FlexBox>
         </Box>
     );
 }
 
-export default Dashboard;
+export default MainContent;

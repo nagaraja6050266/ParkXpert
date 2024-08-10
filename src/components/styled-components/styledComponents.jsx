@@ -182,13 +182,6 @@ const StyledListItemButton = styled(ListItemButton)`
     }
 `;
 
-const StyledSelect = styled(Select)`
-    &.MuiSelect-select {
-        backgroundcolor: ${(props) =>
-            props.backgroundColor ? props.backgroundColor : "white"};
-    }
-`;
-
 const Theme = createTheme({
     palette: {
         primary: {
@@ -265,5 +258,4 @@ export {
     Theme,
     StyledButton,
     StyledListItemButton,
-    StyledSelect,
 };

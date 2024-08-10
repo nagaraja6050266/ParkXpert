@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { ThemeProvider } from "styled-components";
 import AppNameComponent from "../../components/styled-components/AppNameComponent";
 import { Theme } from "../../components/styled-components/styledComponents";
-import Dashboard from "./Dashboard";
 import MenuList from "./MenuList";
 
 function Navbar() {
@@ -18,9 +17,6 @@ function Navbar() {
             >
                 <AppNameComponent color="white" mt="30px" />
                 <MenuList />
-            </Box>
-            <Box sx={{ ml: "16%", backgroundColor: "white",height: '100vh'}}>
-                <Dashboard />
             </Box>
         </ThemeProvider>
     );

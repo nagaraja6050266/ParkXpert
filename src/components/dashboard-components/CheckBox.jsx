@@ -1,5 +1,4 @@
-import { MenuItem, FormControl } from "@mui/material";
-import {StyledSelect} from '../styled-components/styledComponents'
+import { MenuItem, FormControl, Select} from "@mui/material";
 import { useState } from "react";
 
 export default function CheckBox({ width, optionsArray,backgroundColor }) {
@@ -16,17 +15,16 @@ export default function CheckBox({ width, optionsArray,backgroundColor }) {
     ));
 
     return (
-        <FormControl sx={{ m: 1, minWidth: width }} size="small">
-            <StyledSelect
-                width='200px'
-                backgroundColor='black'
+        <FormControl sx={{ m: 1 }} size="small">
+            <Select
+            sx={{background: backgroundColor,width: width}}
                 value={filter}
                 onChange={handleChange}
                 displayEmpty
                 inputProps={{ "aria-label": "Without label" }}
             >
                 {menuItems}
-            </StyledSelect>
+            </Select>
         </FormControl>
     );
 }
