@@ -3,7 +3,7 @@ import { Typography,Box } from "@mui/material";
 import userProfile from "../../assets/userProfile.png";
 function UserProfile() {
     return (
-        <FlexBox width={130} height={40} m={2} gap={1}>
+        <FlexBox width={130} height={40} mr={2} gap={1}>
             <Box flexDirection="column" justifyContent='left'>
                 <Typography fontWeight={600} fontSize={15}>
                     UserName

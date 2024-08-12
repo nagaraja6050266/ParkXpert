@@ -15,7 +15,7 @@ function OfficeLocation() {
     };
 
     return (
-        <Box width='100%' display="flex" alignItems="center" p={2}>
+        <Box width='100%' display="flex" alignItems="center" pl={2} pr={2}>
             <Box>
                 <Typography variant="h7" component="div" fontWeight="bold">
                     Icanio Office

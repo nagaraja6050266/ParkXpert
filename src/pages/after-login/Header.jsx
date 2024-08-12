@@ -5,9 +5,9 @@ import UserProfile from "../../components/dashboard-components/UserProfile";
 
 function Header() {
     return (
-        <FlexBox height='fit-content' width='100%'>
+        <FlexBox pt={1} pb={1} height='fit-content' width='100%'>
             <OfficeLocation />
-            <FlexBox alignItems='center' justifyContent='flex-end'>
+            <FlexBox alignItems='center' gap={2} justifyContent='flex-end'>
                 <DateAndTime />
                 <UserProfile />
             </FlexBox>

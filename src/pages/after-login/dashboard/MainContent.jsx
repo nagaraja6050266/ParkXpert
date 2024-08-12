@@ -1,14 +1,16 @@
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { Box, Divider, Typography } from "@mui/material";
-import CheckBox from "../../../components/dashboard-components/CheckBox";
-import VehicleCard from "../../../components/dashboard-components/VehicleCard";
-import { FlexBox } from "../../../components/styled-components/styledComponents";
 import Auto from "../../../assets/auto.png";
 import Ban from "../../../assets/banPlain.png";
 import CarIcon from "../../../assets/car.png";
 import Scooter from "../../../assets/scooter.png";
 import Truck from "../../../assets/truck.png";
 import Warn from "../../../assets/warning.png";
+import VehicleCard from "../../../components/dashboard-components/VehicleCard";
+import CheckBox from "../../../components/dashboard-components/CheckBox";
+import { FlexBox } from "../../../components/styled-components/styledComponents";
+import FilterOptions from "./FilterOptions";
+import SearchBar from "../../../components/dashboard-components/SearchBar";
 
 const vehicleCardContents = [
     {
@@ -52,12 +54,12 @@ const vehicleCardContents = [
     },
 ];
 
-const optionsArray = ["All", "Car", "Bike", "Truck"];
+const searchOptions = ["People"];
 
 function MainContent() {
     return (
         <Box>
-            <Divider sx={{ marginBottom: "10px" }} />
+            <Divider sx={{ marginBottom: "5px" }} />
             <FlexBox justifyContent="space-evenly" width="100%" flexWrap="wrap">
                 {vehicleCardContents.map((m, i) => (
                     <VehicleCard
@@ -70,7 +72,7 @@ function MainContent() {
                     />
                 ))}
             </FlexBox>
-            <FlexBox mt={1}>
+            <FlexBox mt={0.5}>
                 <Box sx={{ px: 2, whiteSpace: "nowrap" }}>
                     <FlexBox>
                         <Typography
@@ -90,12 +92,14 @@ function MainContent() {
                     <Divider />
                 </Box>
             </FlexBox>
-            <FlexBox>
+            <FilterOptions />
+            <FlexBox width="98.5%" justifyContent="space-around">
+                <SearchBar />
                 <CheckBox
-                    width="300px"
-                    backgroundColor="primary.main"
-                    optionsArray={optionsArray}
-                ></CheckBox>
+                    optionsArray={searchOptions}
+                    backgroundcolor="#00205C"
+                    width="100px"
+                />
             </FlexBox>
         </Box>
     );

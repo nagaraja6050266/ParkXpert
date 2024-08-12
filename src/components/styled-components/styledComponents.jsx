@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import styled from "@emotion/styled";
 import "@fontsource/assistant";
+import { DatePicker } from "@mui/x-date-pickers";
 
 //AppName and Logo Component
 const AppNameContainer = Styled.div`
@@ -44,9 +45,9 @@ const CenteredBox = styled(Box)`
 `;
 
 const CustomLabel = Styled.label`
-    color: #223548;
+    color: ${(props) => (props.color ? props.color : "#223548")};
     font-weight: 600;
-    font-size: 12px;
+    font-size: ${(props) => (props.fontSize ? props.fontSize : "12px")};
 `;
 
 //Custom Input and Label Container
@@ -82,11 +83,11 @@ const CustomLabelInputContainer = Styled.div`
 
 //FlexBox
 const FlexBox = styled(CenteredBox)`
-    flex-direction: ${({ flexDirection }) =>
-        flexDirection ? flexDirection : "row"};
-    width: ${({ width }) => (width ? width : "100%")};
-    justify-content: ${({ justifyContent }) =>
-        justifyContent ? justifyContent : "left"};
+    display: "flex";
+    alignItems: ${({ alignItems }) => alignItems || "center"};
+    flex-direction: ${({ flexDirection }) => flexDirection || "row"};
+    width: ${({ width }) => width || "100% !important"};
+    justify-content: ${({ justifyContent }) => justifyContent || "flex-start"};
 `;
 
 //Icon Container for intro page
@@ -182,6 +183,39 @@ const StyledListItemButton = styled(ListItemButton)`
     }
 `;
 
+//Dashboarditems
+
+const StyledSelect = styled(Select)`
+    background: ${(props) =>
+        props.backgroundcolor ? props.backgroundcolor : "white"};
+    width: ${(props) => (props.width ? props.width : "100%")};
+    color: ${(props) => (props.backgroundcolor ? "white" : "primary.main")};
+    border-radius: 10px;
+    font-size: 11px;
+
+    & .MuiSelect-icon {
+        color: ${(props) => (props.backgroundcolor ? "white" : "black")};
+    }
+`;
+
+const StyledDatePicker = styled(DatePicker)`
+    & input {
+        height: 32px;
+        padding: 0px 8px;
+        font-size: 12px;
+        color: #A9B4BE;
+    }
+
+    & .MuiInputBase-root {
+        border-radius: 10px;   
+        width: 10vw;
+    }
+
+    & svg{
+        color: #D5DADD;
+    }
+`;
+
 const Theme = createTheme({
     palette: {
         primary: {
@@ -258,4 +292,6 @@ export {
     Theme,
     StyledButton,
     StyledListItemButton,
+    StyledSelect,
+    StyledDatePicker,
 };

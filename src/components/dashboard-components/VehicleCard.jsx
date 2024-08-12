@@ -6,7 +6,7 @@ function VehicleCard({ iconName, name, count, color,bgColor }) {
         <Card
             sx={{
                 width: "130px",
-                height: "70px",
+                height: "65px",
                 backgroundColor: bgColor,
                 padding: "10px",
                 boxShadow: "none",
