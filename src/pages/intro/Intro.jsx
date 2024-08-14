@@ -43,65 +43,63 @@ function Intro() {
     };
 
     return (
-        <CenteredBox height='100vh'>
-            <StyledCard>
-                <AppNameComponent />
-                <IconComponent
-                    component="img"
-                    height="80"
-                    image={iconsArray[arrayIndex]}
-                    alt="icon"
-                />
-                <h1 style={{ fontWeight: "bold", color: "black" }}>
-                    {mainContentArray[arrayIndex]}
-                </h1>
-                <CardContent
-                    style={{
-                        color: "#5B738B",
-                        fontSize: "12px",
-                        textAlign: "center",
-                        height: "40px",
-                    }}
-                >
-                    {desciptionArray[arrayIndex]}
-                </CardContent>
-                <StyledMobileStepper
-                    variant="dots"
-                    steps={3}
-                    position="static"
-                    activeStep={arrayIndex}
-                    sx={{ maxWidth: 400, flexGrow: 1 }}
-                />
-                {arrayIndex ? (
-                    <StyledButton
-                        startIcon={<img src={backButton} alt="backbutton" />}
-                        style={{
-                            position: "absolute",
-                            bottom: "50px",
-                            left: "30px",
-                        }}
-                        onClick={handleBackClick}
-                        variant="outlined"
-                    >
-                        Back
-                    </StyledButton>
-                ) : (
-                    " "
-                )}
+        <StyledCard>
+            <AppNameComponent />
+            <IconComponent
+                component="img"
+                height="80"
+                image={iconsArray[arrayIndex]}
+                alt="icon"
+            />
+            <h1 style={{ fontWeight: "bold", color: "black" }}>
+                {mainContentArray[arrayIndex]}
+            </h1>
+            <CardContent
+                style={{
+                    color: "#5B738B",
+                    fontSize: "12px",
+                    textAlign: "center",
+                    height: "40px",
+                }}
+            >
+                {desciptionArray[arrayIndex]}
+            </CardContent>
+            <StyledMobileStepper
+                variant="dots"
+                steps={3}
+                position="static"
+                activeStep={arrayIndex}
+                sx={{ maxWidth: 400, flexGrow: 1 }}
+            />
+            {arrayIndex ? (
                 <StyledButton
-                    endIcon={<img src={nextButton} alt="nextbutton" />}
+                    startIcon={<img src={backButton} alt="backbutton" />}
                     style={{
                         position: "absolute",
                         bottom: "50px",
-                        right: "30px",
+                        left: "30px",
                     }}
-                    onClick={handleNextClick}
-                    variant="contained"
+                    onClick={handleBackClick}
+                    variant="outlined"
                 >
-                    {arrayIndex == 2 ? "Get Started" : "Next"}
+                    Back
                 </StyledButton>
-            </StyledCard>
-        </CenteredBox>
+            ) : (
+                " "
+            )}
+            <StyledButton
+                endIcon={<img src={nextButton} alt="nextbutton" />}
+                style={{
+                    position: "absolute",
+                    bottom: "50px",
+                    right: "30px",
+                }}
+                onClick={handleNextClick}
+                variant="contained"
+            >
+                {arrayIndex == 2 ? "Get Started" : "Next"}
+            </StyledButton>
+        </StyledCard>
     );
 }
 export default Intro;

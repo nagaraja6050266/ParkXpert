@@ -13,6 +13,7 @@ import {
 import styled from "@emotion/styled";
 import "@fontsource/assistant";
 import { DatePicker } from "@mui/x-date-pickers";
+import bgImage from '../../assets/background.png'
 
 //AppName and Logo Component
 const AppNameContainer = Styled.div`

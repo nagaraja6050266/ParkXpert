@@ -24,7 +24,7 @@ function IndexTemplate({ page }) {
 
     return (
         <Grid container sx={{backgroundImage: bgImage}}>
-            <Grid item xs={12} md={6}>
+            <Grid sx={{ backgroundImage: `url(${bgImage})` }} item xs={12} md={6}>
                 <LeftSide>
                     <AppNameComponent mt="10vh" height="40px" color="white" />
                 </LeftSide>
