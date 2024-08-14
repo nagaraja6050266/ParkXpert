@@ -1,16 +1,25 @@
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { Box, Divider, Typography } from "@mui/material";
 import Auto from "../../../assets/auto.png";
 import Ban from "../../../assets/banPlain.png";
 import CarIcon from "../../../assets/car.png";
+import Helmet from "../../../assets/helmet.png";
 import Scooter from "../../../assets/scooter.png";
+import Speed from "../../../assets/speed.png";
 import Truck from "../../../assets/truck.png";
 import Warn from "../../../assets/warning.png";
-import VehicleCard from "../../../components/dashboard-components/VehicleCard";
+import Icon from "../../../components/Icon";
 import CheckBox from "../../../components/dashboard-components/CheckBox";
-import { FlexBox } from "../../../components/styled-components/styledComponents";
-import FilterOptions from "./FilterOptions";
 import SearchBar from "../../../components/dashboard-components/SearchBar";
+import VehicleCard from "../../../components/dashboard-components/VehicleCard";
+import { FlexBox } from "../../../components/styled-components/styledComponents";
+import TableButton from "../../../components/table-components/TableButton";
+import TableContentRounded from "../../../components/table-components/TableContentRounded";
+import DashboardTable from "../DashboardTable";
+import FilterOptions from "./FilterOptions";
+
+let index = 1;
 
 const vehicleCardContents = [
     {
@@ -52,6 +61,209 @@ const vehicleCardContents = [
         bgColor: "#EE3939",
         color: "white",
     },
+];
+
+const columns = [
+    { id: "sNo", label: "S. No", minWidth: "3vw", align: "center" },
+    { id: "personID", label: "Person ID", minWidth: "10vw" },
+    { id: "company", label: "Company", minWidth: "9vw", align: "center" },
+    { id: "renderedPlateNo", label: "Plate No.", minWidth: "10vw" },
+    { id: "model", label: "Model", maxWidth: "2vw" },
+    { id: "type", label: "Type", minWidth: "20%" },
+    { id: "renderedViolation", label: "Violation", minWidth: "20%" },
+    { id: "renderedInTime", label: "In Time", minWidth: "20%" },
+    { id: "renderedOutTime", label: "Out Time", minWidth: "20%" },
+    { id: "action", label: "Action", minWidth: "150px" },
+];
+
+function createData({
+    personID,
+    company,
+    plateNo,
+    model,
+    type,
+    violation,
+    inTime,
+    outTime,
+    action,
+}) {
+    company = company || "---";
+    model = model || "---";
+
+    const renderedPlateNo = plateNo ? (
+        <TableContentRounded bgColor="#EAECEE" content={plateNo} />
+    ) : (
+        <TableContentRounded
+            bgColor="#EE3939"
+            content="Unrecognized"
+            textColor="white"
+        />
+    );
+
+    const renderedViolationContent = violation.map((v, i) => (
+        <Icon key={i} src={v} />
+    ));
+    const renderedViolation = (
+        <TableContentRounded
+            bgColor="#FFB300"
+            textColor="#3D2500"
+            content={renderedViolationContent}
+        />
+    );
+
+    const inTimeContent = [
+        inTime,
+        <ArrowDownward fontSize="small" key="inTimeIcon" />,
+    ];
+
+    const renderedInTime = (
+        <TableContentRounded
+            bgColor="#EAECEE"
+            content={inTimeContent.map((item, index) => (
+                <span key={index}>{item}</span>
+            ))}
+        />
+    );
+
+    const outTimeContent = [
+        outTime,
+        <ArrowUpward fontSize="small" key="outTimeIcon" />,
+    ];
+    const renderedOutTime = (
+        <TableContentRounded
+            bgColor="#EAECEE"
+            content={outTimeContent.map((item, index) => (
+                <span key={index}>{item}</span>
+            ))}
+        />
+    );
+    const sNo = index++;
+
+    return {
+        sNo,
+        personID,
+        company,
+        renderedPlateNo,
+        model,
+        type,
+        renderedViolation,
+        renderedInTime,
+        renderedOutTime,
+        action,
+    };
+}
+
+const rows = [
+    createData({
+        personID: "12345566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "1234556",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "1235566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "1234566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "1245566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "124966",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "12u566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "12u566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "12u566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
+    createData({
+        personID: "12u566",
+        company: "",
+        plateNo: "TN 72 AS 1426",
+        model: "Bajaj, Pulsar",
+        type: <Icon src={Scooter} />,
+        violation: [Speed, Helmet],
+        inTime: "10.00 AM",
+        outTime: "10.00 PM",
+        action: <TableButton buttonType="add" />,
+    }),
 ];
 
 const searchOptions = ["People"];
@@ -101,6 +313,7 @@ function MainContent() {
                     width="100px"
                 />
             </FlexBox>
+            <DashboardTable columns={columns} rows={rows} />
         </Box>
     );
 }

@@ -7,6 +7,7 @@ import { Grid } from "@mui/material";
 import OtpForm from "../pages/password/otpForm";
 import backbutton from "../assets/backArrow.png";
 import { useNavigate } from "react-router-dom";
+import bgImage from '../assets/background.png'
 
 function IndexTemplate({ page }) {
     const navigate=useNavigate();
@@ -22,7 +23,7 @@ function IndexTemplate({ page }) {
     }
 
     return (
-        <Grid container>
+        <Grid container sx={{backgroundImage: bgImage}}>
             <Grid item xs={12} md={6}>
                 <LeftSide>
                     <AppNameComponent mt="10vh" height="40px" color="white" />

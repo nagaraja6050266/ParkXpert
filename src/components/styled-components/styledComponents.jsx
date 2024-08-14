@@ -39,8 +39,7 @@ const AppName = Styled.h2`
 //Styled Box to contain a centered align div
 const CenteredBox = styled(Box)`
     display: flex;
-    justify-content: ${(props) =>
-        props.justifyContent ? props.justifyContent : "center"};
+    justify-content: ${(props) => props.justifyContent || "center"};
     align-items: center;
 `;
 
@@ -83,10 +82,10 @@ const CustomLabelInputContainer = Styled.div`
 
 //FlexBox
 const FlexBox = styled(CenteredBox)`
-    display: "flex";
-    alignItems: ${({ alignItems }) => alignItems || "center"};
+    display: flex; /* Remove the quotes */
+    align-items: ${({ alignItems }) => alignItems || "center"};
     flex-direction: ${({ flexDirection }) => flexDirection || "row"};
-    width: ${({ width }) => width || "100% !important"};
+    width: ${({ width }) => width || "100%"};
     justify-content: ${({ justifyContent }) => justifyContent || "flex-start"};
 `;
 
@@ -203,16 +202,16 @@ const StyledDatePicker = styled(DatePicker)`
         height: 32px;
         padding: 0px 8px;
         font-size: 12px;
-        color: #A9B4BE;
+        color: #a9b4be;
     }
 
     & .MuiInputBase-root {
-        border-radius: 10px;   
+        border-radius: 10px;
         width: 10vw;
     }
 
-    & svg{
-        color: #D5DADD;
+    & svg {
+        color: #d5dadd;
     }
 `;
 
@@ -270,6 +269,29 @@ const Theme = createTheme({
                 },
             },
         },
+        MuiTableCell: {
+            styleOverrides: {
+                root: {
+                    padding: "10px",
+                    color: "#475E75",
+                    fontSize: "13px",
+                    fontWeight: "500",
+                },
+                head: {
+                    color: "#8396A8",
+                    fontSize: '11px',
+                    backgroundColor: "#F5F6F7",
+                    padding: "7px",
+                },
+            },
+        },
+        MuiSvgIcon: {
+            styleOverrides: {
+                root: {
+                    fontSize: '15px',
+                }
+            }
+        }
     },
 });
 

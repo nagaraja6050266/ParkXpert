@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IntroLoad from "./IntroLoad";
 import Intro from "./Intro";
-import '../pagestyles.css'
 
 function IntroPage() {
     const [renderContent, setRenderContent] = useState(0);
