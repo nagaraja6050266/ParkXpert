@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import IndexTemplate from "./components/indexTemplate";
 import IntroPage from "./pages/intro/index.jsx";
-import Dashboard from "./pages/after-login/dashboard/index";
+import MainComponent from "./pages/after-login/index";
+import Dashboard from "./pages/after-login/dashboard/Dashboard";
 
 function App() {
     return (
@@ -22,7 +23,9 @@ function App() {
                 path="/forgot-password"
                 element={<IndexTemplate page="forgot-password" />}
             />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route element={<MainComponent />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
         </Routes>
     );
 }
