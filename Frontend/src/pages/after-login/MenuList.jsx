@@ -8,6 +8,7 @@ import {
     Person,
     Settings,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const MenuItems = [
     { itemName: "Dashboard", icon: <DashboardRounded /> },
@@ -18,10 +19,33 @@ const MenuItems = [
 ];
 
 export default function MenuList() {
+    const navigate = useNavigate();
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
+        switch(index){
+            case 0:
+                navigate('/dashboard');
+                break;
+            case 1:
+                navigate('/peoples');
+                break;
+            case 2:
+                navigate('/analytics');
+                break;
+            case 3:
+                navigate('/permissions');
+                break;
+            case 4:
+                navigate('/analytics');
+                break;
+            case 5:
+                navigate('/settings');
+                break;
+            default:
+                console.log("invalid");
+        }
     };
 
     return (

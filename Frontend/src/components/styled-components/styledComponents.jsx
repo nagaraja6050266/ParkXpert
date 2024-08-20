@@ -216,6 +216,21 @@ const StyledDatePicker = styled(DatePicker)`
     }
 `;
 
+
+const SquareButton = styled(Button)({
+    padding: 0,
+    minWidth: '35.5px',
+    minHeight:'35.5px',
+    color:'#475E75',
+    '&. MuiSvgIcon-root' :{
+      color:'#475E75',
+      '& svg':{
+        fontSize: "20px !important",
+      }
+    },
+  });
+
+
 const Theme = createTheme({
     palette: {
         primary: {
@@ -317,4 +332,5 @@ export {
     StyledListItemButton,
     StyledSelect,
     StyledDatePicker,
+    SquareButton
 };
