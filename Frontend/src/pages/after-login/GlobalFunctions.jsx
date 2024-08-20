@@ -1,11 +1,10 @@
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
 import { Typography } from "@mui/material";
-import AccessToButton from "../../components/permissions-components/AccessToButton";
-import { FlexBox } from "../../components/styled-components/styledComponents";
-import { ArrowUpward, ArrowDownward } from "@mui/icons-material";
-import TableContentRounded from "../../components/table-components/TableContentRounded";
 import Icon from "../../components/Icon";
+import AccessToButton from "../../components/permissions-components/AccessToButton";
 import TableButton from "../../components/table-components/TableButton";
-
+import TableContentRounded from "../../components/table-components/TableContentRounded";
+let index = 1;
 function createData({
     personID = "---",
     company = "---",
@@ -16,9 +15,9 @@ function createData({
     inTime = "",
     outTime = "",
     action = null,
-    trash = false,
+    isTrash = false,
     accessTo = [],
-    email = "",
+    email = null,
     name = "",
     mobileNumber = "",
     status = "",
@@ -71,15 +70,16 @@ function createData({
         />
     );
 
-    const rederedAccessTo = <AccessToButton contentArray={accessTo} />;
+    const renderedAccessTo = <AccessToButton contentArray={accessTo} />;
+    console.log(renderedAccessTo);
     const sNo = index++;
     const renderedStatus = (
-        <Typography color={status == "Active" ? "#188918" : "#D91313"}>
+        <Typography color={status == "Active" ? "#188918" : "#D91313"} fontSize={13} fontWeight={500} >
             {status}
         </Typography>
     );
 
-    const trash = trash && <TableButton buttonType="delete" />;
+    const trash = isTrash && <TableButton buttonType="delete" />;
 
     return {
         sNo,
@@ -93,7 +93,7 @@ function createData({
         renderedOutTime,
         trash,
         action,
-        rederedAccessTo,
+        renderedAccessTo,
         email,
         name,
         mobileNumber,

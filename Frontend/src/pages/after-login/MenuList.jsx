@@ -11,37 +11,37 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const MenuItems = [
-    { itemName: "Dashboard", icon: <DashboardRounded /> },
-    { itemName: "People", icon: <Person /> },
-    { itemName: "Analytics", icon: <BarChartRounded /> },
-    { itemName: "Permissions", icon: <LockRounded /> },
-    { itemName: "Settings", icon: <Settings /> },
+    { id: "dashboard", itemName: "Dashboard", icon: <DashboardRounded /> },
+    { itemName: "People", icon: <Person />, id: "people" },
+    { itemName: "Analytics", icon: <BarChartRounded />, id: "analytics" },
+    { itemName: "Permissions", icon: <LockRounded />, id: "permissions" },
+    { itemName: "Settings", icon: <Settings />, id: "settings" },
 ];
 
 export default function MenuList() {
     const navigate = useNavigate();
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState();
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
-        switch(index){
+        switch (index) {
             case 0:
-                navigate('/dashboard');
+                navigate("/dashboard");
                 break;
             case 1:
-                navigate('/peoples');
+                navigate("/peoples");
                 break;
             case 2:
-                navigate('/analytics');
+                navigate("/analytics");
                 break;
             case 3:
-                navigate('/permissions');
+                navigate("/permissions");
                 break;
             case 4:
-                navigate('/analytics');
+                navigate("/analytics");
                 break;
             case 5:
-                navigate('/settings');
+                navigate("/settings");
                 break;
             default:
                 console.log("invalid");
