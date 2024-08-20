@@ -10,7 +10,6 @@ function OTPinputs({ length }) {
         if (i < length - 1 && value.length == 1) {
             inputRefs.current[i + 1].focus();
         }
-        setFocusKey(i);
     };
 
     return (
