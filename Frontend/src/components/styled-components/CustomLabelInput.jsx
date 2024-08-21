@@ -22,7 +22,7 @@ function CustomLabelInput({
                     required
                 />
             ) : (
-                <PasswordInput id={inputId} placeholder={placeHolder} errMsg={errMsg} />
+                <PasswordInput inputType={inputType} id={inputId} placeholder={placeHolder} errMsg={errMsg} />
             )}
             <CustomLabel style={{ color: "red" }} htmlFor={inputId}>
                 {errMsg}

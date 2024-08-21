@@ -1,9 +1,9 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
+import { Visibility, VisibilityOff, Edit } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
-import { PasswordContainer,CustomInput } from "./styledComponents";
+import { PasswordContainer, CustomInput } from "./styledComponents";
 
-function PasswordInput({id,placeholder,errMsg}) {
+function PasswordInput({ id, placeholder, errMsg, edit,inputType }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => {
@@ -14,21 +14,27 @@ function PasswordInput({id,placeholder,errMsg}) {
         <PasswordContainer>
             <CustomInput
                 style={{
-                    backgroundColor:
-                        errMsg != " " ? "#FFEAF4" : "#eaecee",
-                    width: '100%'
+                    backgroundColor: errMsg != " " ? "#FFEAF4" : "#eaecee",
+                    width: "100%",
                 }}
                 type={showPassword ? "text" : "password"}
                 id={id}
                 placeholder={placeholder}
             />
-            <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                edge="end"
-            >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
+            {inputType=='editable' && (
+                <IconButton edge="end">
+                    <Edit />
+                </IconButton>
+            )}
+            {inputType=='editable' || (
+                <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+            )}
         </PasswordContainer>
     );
 }
