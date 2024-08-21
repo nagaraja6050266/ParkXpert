@@ -78,6 +78,7 @@ const CustomLabelInputContainer = Styled.div`
     flex-direction: column;
     margin-top: 20px;
     gap: 5px;
+    width: ${({width}) => width || ""};
     font-size: 12px;
 `;
 

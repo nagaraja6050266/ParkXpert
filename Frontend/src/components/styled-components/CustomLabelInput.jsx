@@ -7,11 +7,12 @@ function CustomLabelInput({
     inputId,
     placeHolder,
     errMsg,
+    width
 }) {
     return (
-        <CustomLabelInputContainer>
+        <CustomLabelInputContainer width={width}>
             <CustomLabel htmlFor={inputId}>{labelName}</CustomLabel>
-            {inputType != "password" ? (
+            {(inputType != "password" && inputType!="editable") ? (
                 <CustomInput
                     style={{
                         backgroundColor: errMsg != " " ? "#FFEAF4" : "#eaecee",
@@ -22,7 +23,7 @@ function CustomLabelInput({
                     required
                 />
             ) : (
-                <PasswordInput inputType={inputType} id={inputId} placeholder={placeHolder} errMsg={errMsg} />
+                <PasswordInput id={inputId} inputType={inputType} placeholder={placeHolder} errMsg={errMsg} />
             )}
             <CustomLabel style={{ color: "red" }} htmlFor={inputId}>
                 {errMsg}

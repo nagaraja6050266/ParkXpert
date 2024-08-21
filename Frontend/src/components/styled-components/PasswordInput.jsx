@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { PasswordContainer, CustomInput } from "./styledComponents";
 
-function PasswordInput({ id, placeholder, errMsg, edit,inputType }) {
+function PasswordInput({ id, placeholder, errMsg,inputType }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => {

@@ -38,9 +38,6 @@ export default function MenuList() {
                 navigate("/permissions");
                 break;
             case 4:
-                navigate("/analytics");
-                break;
-            case 5:
                 navigate("/settings");
                 break;
             default:
