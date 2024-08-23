@@ -10,6 +10,7 @@ import OtpForm from "./pages/password/otpForm";
 import Peoples from "./pages/after-login/peoples";
 import Permissions from "./pages/after-login/permissions";
 import Settings from "./pages/after-login/settings";
+import DialogBoxTemplate from "./pages/after-login/DialogBoxTemplate";
 
 function App() {
     return (
@@ -36,7 +37,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/peoples" element={<Peoples />} />
                 <Route path="/permissions" element={<Permissions />} />
-                <Route path="/settings" element={<Settings />} />
+                <Route path="/settings" element={<Settings />} />                
             </Route>
         </Routes>
     );

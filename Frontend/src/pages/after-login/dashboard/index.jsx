@@ -18,8 +18,17 @@ import TableContentRounded from "../../../components/table-components/TableConte
 import DashboardTable from "../DashboardTable";
 import FilterOptions from "./FilterOptions";
 import { createData } from "../GlobalFunctions";
+import DialogBoxTemplate from "../DialogBoxTemplate";
 
-let index = 1;
+function handleAddButton() {
+    return (
+        <DialogBoxTemplate
+            dialogHeader="Add Profile"
+            submitButtonContent="Create Profile"
+            form={DialogForm}
+        />
+    );
+}
 
 const vehicleCardContents = [
     {
@@ -76,7 +85,6 @@ const columns = [
     { id: "action", label: "Action", minWidth: "150px" },
 ];
 
-
 const rows = [
     createData({
         personID: "12345566",
@@ -87,7 +95,7 @@ const rows = [
         violation: [Speed, Helmet],
         inTime: "10.00 AM",
         outTime: "10.00 PM",
-        action: <TableButton buttonType="add" />,
+        action: <TableButton onClick={handleAddButton} buttonType="add" />,
     }),
     createData({
         personID: "1234556",
@@ -223,4 +231,3 @@ function Dashboard() {
 }
 
 export { Dashboard, createData };
-

@@ -3,7 +3,7 @@ import { Add, Edit, Visibility, Delete } from "@mui/icons-material";
 import React from "react";
 import { SquareButton } from "../styled-components/styledComponents";
 
-function TableButton({ buttonType }) {
+function TableButton({ buttonType,onClick }) {
     let icon, content;
 
     switch (buttonType) {
@@ -42,6 +42,7 @@ function TableButton({ buttonType }) {
             sx={{ p: "7px", width: "100%" }}
             variant="outlined"
             startIcon={icon}
+            onClick={onClick}
         >
             <Typography fontSize={14}>{content}</Typography>
         </Button>
