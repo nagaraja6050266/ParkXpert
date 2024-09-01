@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import IndexTemplate from "./components/indexTemplate";
-import IntroPage from "./pages/intro/index.jsx";
 import MainComponent from "./pages/after-login/MainComponent";
-import {Dashboard} from "./pages/after-login/dashboard/index";
-import SignInForm from "./pages/signin/SignInForm";
-import SignUpForm from "./pages/signup/SignUpForm";
-import PasswordForm from "./pages/password/passwordForm";
-import OtpForm from "./pages/password/otpForm";
+import { Dashboard } from "./pages/after-login/dashboard/index";
 import Peoples from "./pages/after-login/peoples";
 import Permissions from "./pages/after-login/permissions";
 import Settings from "./pages/after-login/settings";
-import DialogBoxTemplate from "./pages/after-login/DialogBoxTemplate";
+import IntroPage from "./pages/intro/index.jsx";
+import OtpForm from "./pages/password/otpForm";
+import PasswordForm from "./pages/password/passwordForm";
+import SignInForm from "./pages/signin/SignInForm";
+import SignUpForm from "./pages/signup/SignUpForm";
 
 function App() {
     return (
@@ -43,4 +42,4 @@ function App() {
     );
 }
 
-export default App;
+export default App;  
